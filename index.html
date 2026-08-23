@@ -1,0 +1,3511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para mi niña 🤍</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Georgia, 'Times New Roman', serif;
+    background:
+        radial-gradient(circle at 18% 18%, rgba(255,105,180,.13), transparent 28%),
+        radial-gradient(circle at 82% 28%, rgba(255,160,210,.08), transparent 24%),
+        radial-gradient(circle at 50% 90%, rgba(255,70,150,.10), transparent 30%),
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.04), transparent 25%),
+        #080808;
+    color:#f5f0eb;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* ---------------------------
+   CORAZONES
+---------------------------- */
+
+.hearts{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:1;
+}
+
+.heart{
+    position:absolute;
+    top:-40px;
+    font-size:18px;
+    opacity:.65;
+    animation:fall linear forwards;
+    text-shadow:0 0 12px rgba(255,120,190,.25);
+}
+
+@keyframes fall{
+
+    0%{
+        transform:translateY(-50px) rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:.7;
+    }
+
+    90%{
+        opacity:.55;
+    }
+
+    100%{
+        transform:translateY(115vh) translateX(35px) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* ---------------------------
+   BOTÓN MENU
+---------------------------- */
+
+.menu-button{
+    position:fixed;
+    top:20px;
+    right:20px;
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(20,20,20,.85);
+    backdrop-filter:blur(10px);
+    color:white;
+    font-size:25px;
+    cursor:pointer;
+    z-index:1000;
+    transition:.3s;
+}
+
+.menu-button:hover{
+    transform:scale(1.08);
+    background:#181818;
+}
+
+/* ---------------------------
+   MENU LATERAL
+---------------------------- */
+
+.side-menu{
+    position:fixed;
+    top:0;
+    right:-370px;
+    width:350px;
+    max-width:90%;
+    height:100vh;
+    background:
+        linear-gradient(rgba(15,15,15,.97),rgba(5,5,5,.99));
+    border-left:1px solid rgba(255,255,255,.12);
+    z-index:999;
+    transition:.4s ease;
+    padding:80px 25px 30px;
+    overflow-y:auto;
+    box-shadow:-10px 0 40px rgba(0,0,0,.5);
+}
+
+.side-menu.open{
+    right:0;
+}
+
+.close-menu{
+    position:absolute;
+    top:20px;
+    left:20px;
+    background:none;
+    border:none;
+    color:white;
+    font-size:25px;
+    cursor:pointer;
+}
+
+.side-menu h2{
+    font-size:25px;
+    margin-bottom:8px;
+}
+
+.side-menu .menu-description{
+    color:#aaa;
+    font-size:14px;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+.song{
+    padding:15px;
+    margin-bottom:10px;
+    background:#121212;
+    border:1px solid rgba(255,150,200,.10);
+    border-radius:12px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.song:hover{
+    background:#1c1c1c;
+    transform:translateX(-3px);
+}
+
+.song.active{
+    border-color:rgba(255,150,200,.35);
+}
+
+.song-title{
+    font-size:15px;
+    margin-bottom:5px;
+}
+
+.song-artist{
+    color:#b48aa0;
+    font-size:12px;
+    margin-bottom:5px;
+}
+
+.song-description{
+    color:#888;
+    font-size:12px;
+}
+
+audio{
+    width:100%;
+    margin-top:15px;
+}
+
+/* ---------------------------
+   PORTADA
+---------------------------- */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px 20px;
+    position:relative;
+    z-index:2;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.small-text{
+    color:#999;
+    text-transform:uppercase;
+    letter-spacing:5px;
+    font-size:12px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(45px,8vw,90px);
+    font-weight:normal;
+    letter-spacing:-3px;
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    font-style:italic;
+}
+
+.hero-subtitle{
+    font-size:clamp(18px,3vw,25px);
+    color:#c7c0ba;
+    line-height:1.6;
+}
+
+.scroll{
+    margin-top:55px;
+    color:#777;
+    font-size:13px;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    50%{
+        opacity:.4;
+    }
+}
+
+/* ---------------------------
+   CARTAS
+---------------------------- */
+
+.letters-section{
+    position:relative;
+    z-index:2;
+    padding:90px 20px 120px;
+}
+
+.section-header{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 55px;
+}
+
+.section-header h2{
+    font-size:42px;
+    font-weight:normal;
+    margin-bottom:15px;
+}
+
+.section-header p{
+    color:#999;
+    line-height:1.7;
+}
+
+.letters-grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+}
+
+/* ---------------------------
+   TARJETA
+---------------------------- */
+
+.letter-card{
+    position:relative;
+    min-height:260px;
+    background:
+        linear-gradient(145deg,#171717,#0d0d0d);
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:18px;
+    padding:25px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    overflow:hidden;
+    transition:.35s;
+}
+
+.letter-card::before{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    background:rgba(255,255,255,.025);
+    right:-70px;
+    top:-70px;
+}
+
+.letter-card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(255,255,255,.2);
+}
+
+.letter-number{
+    color:#777;
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.letter-card h3{
+    font-size:23px;
+    font-weight:normal;
+    margin:20px 0 10px;
+}
+
+.letter-card p{
+    color:#888;
+    line-height:1.5;
+    font-size:14px;
+}
+
+.open-letter{
+    margin-top:25px;
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.15);
+    background:#eeeeee;
+    color:#111;
+    cursor:pointer;
+    font-family:inherit;
+    transition:.3s;
+}
+
+.open-letter:hover{
+    background:white;
+}
+
+.locked{
+    opacity:.38;
+}
+
+.locked .open-letter{
+    cursor:not-allowed;
+    background:#222;
+    color:#777;
+}
+
+.check{
+    color:#aaa;
+    font-size:12px;
+    margin-top:10px;
+}
+
+/* ---------------------------
+   MODAL CARTA
+---------------------------- */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.86);
+    backdrop-filter:blur(12px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:500;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.letter-paper{
+    width:850px;
+    max-width:100%;
+    max-height:90vh;
+    overflow-y:auto;
+    background:
+        linear-gradient(145deg,#f4eee8,#e8ded4);
+    color:#292421;
+    border-radius:5px;
+    padding:clamp(30px,5vw,70px);
+    position:relative;
+    box-shadow:0 30px 100px rgba(0,0,0,.6);
+}
+
+.letter-paper::before{
+    content:"";
+    position:absolute;
+    inset:12px;
+    border:1px solid rgba(70,50,40,.15);
+    pointer-events:none;
+}
+
+.close-letter{
+    position:absolute;
+    top:20px;
+    right:25px;
+    background:none;
+    border:none;
+    font-size:27px;
+    cursor:pointer;
+    color:#514840;
+}
+
+.letter-date{
+    text-align:right;
+    color:#897d73;
+    font-size:13px;
+    margin-bottom:35px;
+}
+
+.letter-paper h2{
+    font-size:clamp(30px,5vw,45px);
+    font-weight:normal;
+    margin-bottom:30px;
+}
+
+.letter-body{
+    font-size:17px;
+    line-height:2;
+}
+
+.letter-body p{
+    margin-bottom:25px;
+}
+
+.signature{
+    margin-top:45px;
+    font-size:20px;
+    font-style:italic;
+}
+
+.finish-button{
+    margin-top:35px;
+    width:100%;
+    padding:16px;
+    border:none;
+    background:#211c19;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:15px;
+}
+
+.finish-button:hover{
+    background:#332b27;
+}
+
+/* ---------------------------
+   FINAL
+---------------------------- */
+
+.final-message{
+    display:none;
+    max-width:800px;
+    margin:70px auto;
+    text-align:center;
+    padding:50px 25px;
+}
+
+.final-message.show{
+    display:block;
+}
+
+.final-message h2{
+    font-size:45px;
+    font-weight:normal;
+    margin-bottom:20px;
+}
+
+.final-message p{
+    color:#aaa;
+    line-height:1.8;
+    font-size:17px;
+}
+
+/* ---------------------------
+   RESPONSIVE
+---------------------------- */
+
+@media(max-width:600px){
+
+    .menu-button{
+        width:45px;
+        height:45px;
+        top:15px;
+        right:15px;
+        font-size:21px;
+    }
+
+    .hero{
+        padding:30px 20px;
+    }
+
+    .hero h1{
+        letter-spacing:-1px;
+    }
+
+    .letters-section{
+        padding:60px 15px 90px;
+    }
+
+    .section-header h2{
+        font-size:32px;
+    }
+
+    .letters-grid{
+        grid-template-columns:1fr;
+    }
+
+    .letter-card{
+        min-height:220px;
+    }
+
+    .letter-paper{
+        padding:35px 25px;
+        max-height:88vh;
+    }
+
+    .letter-body{
+        font-size:16px;
+        line-height:1.85;
+    }
+
+}
+
+/* ---------------------------
+   SCROLLBAR
+---------------------------- */
+
+::-webkit-scrollbar{
+    width:7px;
+}
+
+::-webkit-scrollbar-track{
+    background:#080808;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#333;
+    border-radius:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<!-- BOTÓN MENU -->
+
+<button class="menu-button" onclick="toggleMenu()">
+☰
+</button>
+
+<!-- MENU DE CANCIONES -->
+
+<aside class="side-menu" id="sideMenu">
+
+<button class="close-menu" onclick="toggleMenu()">
+×
+</button>
+
+<h2>Mis canciones para ti</h2>
+
+<p class="menu-description">
+Hay canciones que simplemente suenan bonito y hay otras que por 
+alguna razón me hacen pensar en ti, empiezan a tener tu nombre 
+aunque ninguna lo digan.Estas son algunas que te dedico y quiero que 
+escuches cuando quieras sentirme un poquito más cerca.
+</p>
+
+<div id="songsContainer"></div>
+
+<audio id="audioPlayer" controls></audio>
+
+
+</aside>
+
+
+<!-- PORTADA -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="small-text">
+Para la persona que se volvió especial sin avisar
+</div>
+
+<h1>
+Para mi <span>reina</span>
+</h1>
+
+<p class="hero-subtitle">
+Tal vez hay muchas cosas que nunca te he dicho,
+muchas cosas que he sentido y no he sabido explicar
+en el momento exacto.
+Por eso hice esto para ti.
+</p>
+
+<div class="scroll">
+↓ baja cuando quieras
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CARTAS -->
+
+<section class="letters-section">
+
+<div class="section-header">
+
+<h2>Unas cosas que quería decirte</h2>
+
+<p>
+No tienes que leerlas todas de una vez.
+Ve leyendolas poco a poco. Cada carta 
+guarda algo que alguna vez pensé,
+pasó, sentí o simplemente quise decirte
+y no sabía como hacerlo.
+</p>
+
+</div>
+
+<div class="letters-grid" id="lettersGrid"></div>
+
+<div class="final-message" id="finalMessage">
+
+<h2>Y todavía tengo mucho que decirte.</h2>
+
+<p>
+Si llegaste hasta aquí, solamente quiero que sepas que
+cada una de estas palabras salió de un lugar muy sincero.
+No hice esto porque quisiera hacer algo perfecto.
+Lo hice porque eres alguien que me importa muchísimo
+y porque tal vez escribir es la única manera que encuentro
+para ordenar todo lo que siento.
+</p>
+
+<br>
+
+<p>
+Gracias por llegar a mi vida hermosa.
+Gracias por cada conversación, cada palabra,
+cada momento y cada pedacito de cariño que me has dado.
+</p>
+
+<br>
+
+<p>
+Y si algún día dudas de lo importante que eres para mí
+y de lo mucho que te amo, vuelve aquí.
+Siempre habrá una carta esperándote.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- MODAL -->
+
+<div class="modal" id="letterModal">
+
+<div class="letter-paper">
+
+<button class="close-letter" onclick="closeLetter()">
+×
+</button>
+
+<div class="letter-date" id="letterDate"></div>
+
+<h2 id="letterTitle"></h2>
+
+<div class="letter-body" id="letterBody"></div>
+
+<div class="signature">
+Con todo mi amor,<br>
+tú bebé.
+</div>
+
+<button class="finish-button" id="finishButton">
+Terminé de leerla 🤍
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ============================================================
+   CANCIONES
+============================================================ */
+
+const songs = [
+{
+    title:"Por un beso de tu boca",
+    artist:"Silvestre Dangond",
+    description:"Porque pensar en ti me hace imaginar ese momento en el que por fin pueda tenerte cerquita y darte un beso que llevo tiempo imaginando.",
+    file:"canciones/cancion1.mp3"
+},
+{
+    title:"Cosas que no te dije",
+    artist:"SAIKO",
+    description:"Porque hay demasiadas cosas que siento por ti que no siempre me salen cuando estamos hablando, y esta canción me recuerda precisamente a eso.",
+    file:"canciones/cancion2.mp3"
+},
+{
+    title:"Mil vidas",
+    artist:"Mora, Rayan Castro",
+    description:"Porque si pudiera elegir mil veces a quién conocer y volver a encontrar, me gustaría que en muchas de esas vidas aparecieras tú.",
+    file:"canciones/cancion3.mp3"
+},
+{
+    title:"La nota más linda",
+    artist:"Kaleth Morales",
+    description:"Porque tú tienes esa capacidad de convertir una conversación cualquiera en algo que quiero guardar.",
+    file:"canciones/cancion4.mp3"
+},
+{
+    title:"Deseo",
+    artist:"Maelo Ruiz",
+    description:"Porque hay momentos en los que simplemente deseo tenerte cerca, abrazarte y dejar de extrañarte desde una pantalla.",
+    file:"canciones/cancion5.mp3"
+},
+{
+    title:"Tu y yo",
+    artist:"La misma gente",
+    description:"Porque me gusta imaginar todo lo que todavía nos falta por vivir juntos y pensar en nosotros como ese pequeño equipo que vamos construyendo.",
+    file:"canciones/cancion6.mp3"
+},
+{
+    title:"Lo que tengo para darte",
+    artist:"I Nesta",
+    description:"Porque quizá no tenga las palabras perfectas, pero sí tengo muchísimo cariño, tiempo, ganas de cuidarte y cosas bonitas que quiero compartir contigo.",
+    file:"canciones/cancion7.mp3"
+},
+{
+    title:"Tan natural",
+    artist:"Felipe Peláez, Manuel Julián",
+    description:"Porque contigo muchas cosas se dieron sin forzarlas, simplemente fuimos hablando y acercándonos hasta que empezaste a importarme muchísimo.",
+    file:"canciones/cancion8.mp3"
+},
+{
+    title:"Amoreux",
+    artist:"Alleh",
+    description:"Porque tiene esa vibra que me hace pensar en ti y en esa mezcla de ternura, ilusión y ganas de estar cerquita de mi blanquita.",
+    file:"canciones/cancion9.mp3"
+},
+{
+    title:"Te encontré",
+    artist:"El Vega",
+    description:"Porque entre tantas personas terminé encontrándote a ti, y sinceramente no cambiaría ese encuentro por nada.",
+    file:"canciones/cancion10.mp3"
+},
+{
+    title:"Vivo en el limbo",
+    artist:"Kaleth Morales",
+    description:"Porque a veces siento que estoy entre lo que ya vivimos hablando y todo lo que todavía sueño vivir contigo en persona.",
+    file:"canciones/cancion11.mp3"
+},
+{
+    title:"M.A.I",
+    artist:"Milo J",
+    description:"Porque algunas canciones simplemente se sienten como una conversación que todavía no hemos tenido frente a frente.",
+    file:"canciones/cancion12.mp3"
+},
+{
+    title:"Corazón",
+    artist:"Danny Ocean",
+    description:"Porque desde que llegaste siento que mi corazón tiene una persona a la que busca incluso en los momentos más normales del día.",
+    file:"canciones/cancion13.mp3"
+},
+{
+    title:"Ebrio de amor",
+    artist:"Efecto elegante",
+    description:"Porque exagerando un poquito, a veces siento que pensar demasiado en ti me deja completamente perdido en todo lo bonito que me haces sentir.",
+    file:"canciones/cancion14.mp3"
+},
+{
+    title:"Igual que ayer",
+    artist:"Maelo Ruiz",
+    description:"Porque aunque pase el tiempo, hay cosas de ti que siguen provocándome esa misma emoción de los primeros días.",
+    file:"canciones/cancion15.mp3"
+},
+{
+    title:"WO OH OH",
+    artist:"Omar Courtz, ROA",
+    description:"Porque es de esas que me dan ganas de compartir contigo simplemente porque sí, como cuando te mando algo porque me acordé de ti.",
+    file:"canciones/cancion16.mp3"
+},
+{
+    title:"Moonlight",
+    artist:"Omar Courtz, Eladio Carrión",
+    description:"Porque tiene una vibra de noche que me hace imaginar conversaciones largas contigo mientras simplemente disfrutamos estar juntos.",
+    file:"canciones/cancion17.mp3"
+},
+{
+    title:"Enamorado de ti",
+    artist:"Willie González",
+    description:"Porque el título ya dice demasiado y porque cada vez me resulta más difícil fingir que no me tienes completamente encantado.",
+    file:"canciones/cancion18.mp3"
+},
+{
+    title:"Por esos ojos",
+    artist:"Fuerza regida",
+    description:"Porque tus ojitos son de las primeras cosas que pienso cuando intento explicar por qué me gustas tanto.",
+    file:"canciones/cancion19.mp3"
+},
+{
+    title:"Mi declaración",
+    artist:"Bigal & L Jake",
+    description:"Porque esta lista también es una pequeña forma de decirte cosas que quizá en persona me daría pena decirte tan directamente.",
+    file:"canciones/cancion20.mp3"
+},
+{
+    title:"Tu guardián",
+    artist:"Víctor Muñoz",
+    description:"Porque quiero ser alguien que te cuide y te acompañe, sin quitarte tu libertad y siempre respetando quién eres.",
+    file:"canciones/cancion21.mp3"
+},
+{
+    title:"Me puso el freno",
+    artist:"Mr Black El Presidente",
+    description:"Porque contigo hasta mis pensamientos se aceleran y luego aparece tu carácter para recordarme que debo portarme bien.",
+    file:"canciones/cancion22.mp3"
+},
+{
+    title:"Ejemplo de amor",
+    artist:"Luister la voz",
+    description:"Porque si algún día construimos algo bonito, quiero que se note en la forma en que nos tratamos, no solamente en lo que decimos.",
+    file:"canciones/cancion23.mp3"
+},
+{
+    title:"Amor a primera vista",
+    artist:"Koffee el Kafetero, El vega",
+    description:"Porque aunque todavía no nos hemos visto en persona, desde que empezamos a conocernos hubo algo que me hizo querer seguir acercándome a ti.",
+    file:"canciones/cancion24.mp3"
+},
+{
+    title:"Déjame un beso",
+    artist:"Criss & Ronny",
+    description:"Porque no voy a mentir: uno de los pensamientos que más me da curiosidad es cómo será ese primer beso que todavía nos debemos.",
+    file:"canciones/cancion25.mp3"
+},
+{
+    title:"Quiéreme",
+    artist:"Mickey Taveras",
+    description:"Porque me gusta pensar que, si algún día somos oficialmente nosotros, será porque ambos elegimos querernos y quedarnos.",
+    file:"canciones/cancion26.mp3"
+},
+{
+    title:"Gracias",
+    artist:"Silvestre Dangond, Juancho de la Espriella",
+    description:"Porque antes que cualquier otra cosa quiero agradecerte por haber llegado, por hablar conmigo y por darme tanto cariño.",
+    file:"canciones/cancion27.mp3"
+},
+{
+    title:"El Gustico",
+    artist:"Churo Díaz, Elías Mendoza",
+    description:"Porque me hace pensar en esa parte coqueta y juguetona que también existe entre nosotros y que me saca sonrisas.",
+    file:"canciones/cancion28.mp3"
+},
+{
+    title:"Te amo y te amo",
+    artist:"Felipe Peláez, Zabaleta",
+    description:"Porque hay momentos en los que siento que decirte que te quiero una sola vez se queda corto para todo lo que siento.",
+    file:"canciones/cancion29.mp3"
+},
+{
+    title:"Si tú me besas",
+    artist:"Víctor Manuelle",
+    description:"Porque inevitablemente me hace imaginar ese día en el que por fin estemos frente a frente y podamos descubrir qué se siente estar tan cerca.",
+    file:"canciones/cancion30.mp3"
+},
+{
+    title:"Ojitos lindos",
+    artist:"Bad Bunny",
+    description:"Porque tus ojitos son literalmente una de mis cosas favoritas de ti y porque cada vez que los veo entiendo por qué me tienes tan embobado.",
+    file:"canciones/cancion31.mp3"
+}
+];
+
+
+function loadSongs(){
+
+    const container =
+        document.getElementById("songsContainer");
+
+    songs.forEach((song,index)=>{
+
+        const div=document.createElement("div");
+
+        div.className="song";
+
+        div.innerHTML=`
+
+            <div class="song-title">
+                ♫ ${song.title}
+            </div>
+            <div class="song-artist">
+                ${song.artist}
+            </div>
+
+            <div class="song-description">
+                ${song.description}
+            </div>
+
+        `;
+
+        div.onclick=()=>playSong(index);
+
+        container.appendChild(div);
+
+    });
+
+}
+
+
+function playSong(index) {
+
+    const player = document.getElementById("audioPlayer");
+    const song = songs[index];
+
+    // Construye correctamente la ruta del MP3
+    const audioURL = new URL(song.file, document.baseURI).href;
+
+    console.log("Canción:", song.title);
+    console.log("Ruta:", audioURL);
+
+    // Cargar canción
+    player.src = audioURL;
+    player.load();
+
+    // Reproducir
+    player.play().catch(error => {
+        console.error("Error al reproducir:", error);
+    });
+
+    // Marcar canción seleccionada
+    document.querySelectorAll(".song").forEach(s => {
+        s.classList.remove("active");
+    });
+
+    document.querySelectorAll(".song")[index].classList.add("active");
+}
+
+
+function toggleMenu(){
+
+    document
+    .getElementById("sideMenu")
+    .classList.toggle("open");
+
+}
+
+
+/* ============================================================
+   CARTAS
+============================================================ */
+
+const letters = [
+
+{
+title:"El día que decidí escribirte",
+preview:"Hay una historia que nunca quiero olvidar...",
+body:`
+
+<p>
+Hay algo que siempre voy a recordar y que nunca te había contado como pasó o por lo menos no te conté mucho. El día que decidí hablarte yo estaba 
+muchísimo más nervioso de lo que probablemente imaginaste. No tenía teléfono en ese momento porque lo había vendido mientras estaba ahorrando para
+comprarme un iPhone 17. Yo estaba tranquilo con eso hasta que Ángel me dijo que tú ya querías hablar conmigo.
+</p>
+
+<p>
+Y ahí cambió todo. Pensé de todo para poder hablar contigo. Entonces cogí mi SIM y la metí en el teléfono de un amigo solamente porque quería poder
+hablar contigo. Parece una cosa pequeña cuando la cuento ahora, pero en ese momento para mí significaba muchísimo. Estaba nervioso, preguntándole a
+todo el mundo qué podía decirte, cómo podía saludarte, qué podía hacer para que no pensaras que era aburrido o que no valía la pena seguir hablando
+conmigo.
+</p>
+
+<p>
+No sé por qué contigo me costaba tanto simplemente ser yo, no sabía como hablarte. Creo que eras demasiado importante desde el principio y por eso
+me daba miedo equivocarme. Me acuerdo de que tardaba muchísimo en contestarte porque estába en la calle y el teléfono no era mío. Tenía que esperar
+a que mi amigo me lo prestara y muchas veces nos distraíamos. Y yo sabía que estaba demorando en responder y eso me desesperaba porque lo último 
+que quería era que pensaras que no quería hablar contigo.
+</p>
+
+<p>
+Al día siguiente volví a hacer lo mismo. Busqué otro teléfono, metí mi SIM y traté de encontrar la manera de seguir hablando contigo. Pero era 
+complicado porque obviamente el dueño del teléfono también lo necesitaba.
+</p>
+
+<p>
+Entonces hice algo que no pensé que llegaría hacer por alguien, pero que también demuestra lo que ya empezabas a provocar en mí. Decidí comprarme 
+un teléfono. No era el teléfono que yo quería. No era por el que estaba ahorrando para comprar. Pero en ese momento me dio igual.
+</p>
+
+<p>
+Lo único que quería era poder hablar contigo.
+</p>
+
+<p>
+Y creo que, sin darme cuenta, ese fue uno de los primeros momentos en los que entendí que contigo las cosas iban a ser diferentes.
+</p>
+
+<p>
+Y si alguna vez vuelves a leer esta carta, quiero que recuerdes que mientras la escribía no estaba pensando en hacer algo perfecto. Estaba pensando
+en ti. En tu forma de hablarme, en las veces que me haces sonreír sin darte cuenta y en todas esas pequeñas cosas que, poco a poco, hicieron que 
+dejaras de ser simplemente alguien con quien hablaba para convertirte en alguien que quiero cuidar, amar y tener cerca.
+</p>
+
+<p>
+A veces me cuesta explicar lo mucho que significas porque siento que cualquier frase se queda pequeña. Puedo decirte que eres importante, pero eso
+no alcanza. Puedo decirte que me gustas, pero tampoco alcanza. Puedo decirte que te quiero, y aun así siento que falta algo. Tal vez por eso hice
+estas cartas, para intentar juntar todas esas pequeñas cosas que siento y dejarte una parte de todo escrita.
+</p>
+
+<p>
+Mi reina, todavía nos faltan crear muchas partes de nuestra historia. Nos falta conocernos frente a frente, compartir un abrazo, reírnos estando en
+el mismo lugar y descubrir todas esas pequeñas costumbres que todavía solo puedo imaginar. Y justamente por eso me emociona pensar en todo lo que
+todavía no conocemos. Me gusta la idea de seguir conociendote.
+</p>
+
+`
+},
+
+{
+title:"Antes de saber cuánto ibas a importarme",
+preview:"Todavía no sabía todo lo que ibas a significar...",
+body:`
+
+<p>
+Antes de saber todo lo que ibas a significar para mí, había una parte de mí que simplemente tenía curiosidad por conocerte. No sabía hasta dónde 
+iba a llegar esto, ni cuánto íbamos a hablar, ni todas las cosas que terminaríamos contándonos
+</p>
+
+<p>
+Pero había algo que sí sabía y es que me daban ganas de seguir conociéndote.
+</p>
+
+<p>
+Me gusta cuando aparece una notificación tuya. Me gusta saber cómo estas, qué estas haciendo, qué piensas. Poco a poco empezaste a ocupar un 
+espacio que yo no había planeado darte, solo llegaste y lo ocupaste. 
+</p>
+
+<p>
+Y eso es algo bonito de ti. Nunca sentí que estuviera intentando obligarme a sentir algo. Simplemente pasó. Te fuiste volviendo importante mientras
+yo estaba ocupado intentando entender qué estaba pasando conmigo.
+</p>
+
+<p>
+Creo que una de las cosas que más me gustan de nosotros es precisamente eso, que no necesito inventarme una historia perfecta para explicar lo que
+siento. Solo puedo mirar hacia atrás y darme cuenta de que desde esos primeros días, ya había algo diferente.
+</p>
+
+<p>
+Y ahora estás aquí, siendo mi reina, mi bebé, mi vida, mi niña, mi blanquita y esa persona que puede hacer que una conversación normal termine 
+siendo uno de los mejores momentos de mi día.
+</p>
+
+<p>
+Hay algo que me gusta de lo que estamos construyendo, no nació de una historia común ni de un momento de película. Nació de conversaciones, nervios,
+mensajes, ganas de saber del otro y de dos personas que poco a poco fueron encontrando un espacio en la vida del otro. Y para mí eso lo
+hace todavía más especial.
+</p>
+
+<p>
+Cuando pienso en ti, no pienso solamente en una foto bonita. Pienso en esa sensación de mirar el teléfono y esperar encontrar algo tuyo, de querer
+contarte lo que me pasó, de escuchar una canción y pensar inmediatamente que tengo que mandártela. Te has metido en muchos pequeños momentos de mis
+días sin pedir permiso.
+</p>
+
+<p>
+Y si algún día llegamos a mirar hacia atrás, quiero que recordemos esta etapa con cariño. Quiero acordarme de que todavía estábamos descubriendo
+qué éramos, de que yo estaba nervioso, de que tú estabas entrando poquito a poquito en mi vida y de que aun sin saber exactamente hacia dónde iba
+todo, yo ya sabía que no quería perder la oportunidad de conocerte.
+</p>
+
+
+`
+
+},
+
+{
+title:"Mi blanquita",
+preview:"Hay un apodo que me gusta especialmente...",
+body:`
+
+<p>
+De todos los apodos que puedo usar contigo, hay dos que tiene algo diferente para mí y son: mi blanquita y hermosa. Pero especialmente mi blanquita.
+</p>
+
+<p>
+No sé exactamente cómo explicarlo. Tal vez porque cuando te digo así siento una ternura distinta. Es de esas palabras que salen naturalmente cuando
+estoy pensando en ti y quiero recordar lo especial que eres para mí.
+</p>
+
+<p>
+Pero también hay algo más. Cuando pienso en ti, pienso en tus ojitos. Esos ojitos tuyos que me encantan y que, aunque todavía no haya podido
+tenerte frente a mí, siento que ya conozco de una manera muy especial.
+</p>
+
+<p>
+Pienso también en tu sonrisa. Esa sonrisa que me encanta. Tu carita linda tiene algo que simplemente me emboba. Podría quedarme mirándote y
+seguramente terminaría perdiendo completamente la concentración.
+</p>
+
+<p>
+Y sí, también está esa parte de ti que me vuelve loco y que hace que mi imaginación se vaya por cosas que mejor no voy a explicar en una carta tan
+bonita o que por lo menos intenta ser bonita.
+</p>
+
+<p>
+Pero más allá de todo eso, hay algo que me gusta todavía más, eres tú.
+</p>
+
+<p>
+Tu forma de sentir. Tu forma de molestarte. Tu carácter cuando algo no te gusta. Esa manera que tienes de hacerme entender rápidamente cuando me 
+estoy mal y me estoy pasando un poquito de terco. Aunque te hago caso casi enseguida porque no me gusta que estes molesta conmigo.
+</p>
+
+<p>
+Eres sensible, eres intensa, eres cursi, eres hermosa y eres tú. Y precisamente por eso me encantas. Por eso te amo.
+</p>
+
+<p>También quiero que sepas que cuando escribo sobre ti no estoy intentando idealizarte. Me gustas como eres. Me gustan tus lado cariñoso, tus
+momentos sensibles, tus cambios de humor, tu carácter y hasta esa manera que tienes de hacerme entender rápidamente cuando debo hacerte caso. Me
+gusta que tengas esa personalidad y que no seas una persona fácil de describir en unas pocas palabras.
+</p>
+
+<p>
+Me gusta conocerte de a poquito. Me gusta descubrir detalles nuevos y también me gusta que todavía existan cosas que no sé. Porque significa que 
+todavía tengo mucho por aprender. Quiero escuchar tus historias, conocer tus gustos, saber qué cosas te emocionan, qué cosas te hacen reír y cuáles
+son esas pequeñas cosas que quizá para otros sean insignificantes pero para ti significan muchísimo.
+</p>
+
+<p>
+Y mientras todo eso pasa, quiero seguir siendo alguien con quien puedas hablar, reír, confiar y sentirte amada. No quiero que estas palabras queden
+solamente bonitas en una pantalla. Quiero que algún día puedan convertirse en acciones, recuerdos y momentos que podamos mirar juntos y decir que
+valió la pena haber empezado.
+</p>
+
+`
+
+},
+
+{
+title:"Tus ojitos",
+preview:"Hay algo en tu mirada que me atrapa...",
+body:`<p>
+Si alguna vez me preguntas qué es de las primeras cosas que más me llaman la atención de ti, probablemente voy a decir tus ojos.
+</p>
+
+<p>
+No sé qué, pero hay algo en ellos que me hace quedarme mirándo más de lo que debería. Y probablemente tú ni siquiera sabes 
+cuánto me gustan.
+</p>
+
+<p>
+Tus ojos, tu sonrisa, tu carita y todas esas pequeñas cosas que quizá para ti sean normales, para mí tienen un efecto completamente diferente.
+</p>
+
+<p>
+Me emboban.
+</p>
+
+<p>
+Y creo que una de las cosas más bonitas será algún día poder estar frente a ti y no tener una pantalla de por medio. Poder mirarte directamente y 
+comprobar si realmente me voy a quedar igual de perdido como me pasa cada vez que veo una foto tuya.
+</p>
+
+<p>
+Aunque sinceramente creo que sí.
+</p>
+
+<p>
+Me gusta mirarte y detenerme en esos detalles que quizás muchos que te ven todos los días lo han notado. Yo, en cambio, los veo desde otro lugar,
+desde el lugar de alguien que se fue encariñando contigo poquito a poquito. Tus ojos se volvieron una de esas cosas que aparecen en mi cabeza
+cuando pienso en ti sin quererlo.
+</p>
+
+<p>
+Algún día quiero comprobar qué pasa cuando pueda mirarte de frente y no exista una pantalla entre los dos. Quiero ver si voy a conseguir mantener
+una conversación normal o si voy a quedarme completamente perdido mirándote. Y si me pongo nervioso, probablemente voy a culpar a tus ojitos,
+porque me parece una excusa bastante buena. Mientras llega ese momento, quiero que sepas que una mirada tuya que para mí siempre va a tener 
+un lugar especial.
+</p>
+
+`
+
+},
+
+{
+title:"Tu sonrisa",
+preview:"Hay sonrisas bonitas y luego está la tuya...",
+body:`<p>
+Tu sonrisa tiene algo que me encanta.
+</p>
+
+<p>
+No sé si alguna vez te lo he dicho exactamente de esta manera, pero cuando sonríes siento que cambia completamente tu carita, se te achinan tus
+ojitos y te hace ver muy tierna. Es de esas cosas que pueden hacer que me quede mirando una foto tuya mucho más tiempo del que tenía pensado.
+</p>
+
+<p>
+Y quizás lo más bonito es que ni siquiera necesitas hacer algo especial.
+</p>
+
+<p>
+Simplemente sonríes y ya.
+</p>
+
+<p>
+Me gusta pensar que algún día voy a poder estar contigo en persona y hacerte reír hasta que te duela la cara de tanto sonreír. Quiero conocer esa
+versión tuya que no aparece detrás de una pantalla. Quiero escuchar tu risa de verdad, verte hacer tus gestos, molestarte un poquito y después
+verte intentar no sonreír o intentar quitarte la rabia por si te molestaste.
+</p>
+
+<p>
+Porque sí, mi reina, tu sonrisa es una de esas pequeñas cosas que me hacen pensar que tuve mucha suerte de encontrarte.
+</p>
+
+<p>
+Tu sonrisa es de esas cosas que me cambian el ánimo sin que tú tengas que hacer absolutamente nada. Me gusta cuando aparece en una foto, cuando la
+imagino después de que me cuentas sobre algo que te hizo reír y hasta cuando yo terminó haciéndote sonreír. Hay personas que tienen una sonrisa 
+bonita y tu eres una de esas personas.
+</p>
+
+<p>
+Quiero conocer qué cosas te hacen reír hasta que no puedas parar, qué comentarios te dan pena pero igual te hacen sonreír, qué bobadas nos van
+a dar risa cuando estemos juntos. Y quiero ser también uno de esos motivos. No por presumirlo, sino porque me gustaría que cuando pienses en 
+momentos bonitos haya algunos en los que yo esté ahí, aunque sea haciendo una estupidez solo para verte sonreír.
+</p>
+`
+
+},
+
+{
+title:"Lo que provocas en mí",
+preview:"Hay personas que llegan y simplemente dejan algo...",
+body:`<p>
+Tú has conseguido algo que no pensé que alguien pudiera conseguir tan fácilmente y es hacerme sentir muchísimo, contigo me sale natural pero yo no
+soy tan cariñoso ni me gusta demostrar tanto.
+</p>
+
+<p>
+Contigo he sentido amor, emoción, nervios, ilusión, celos, ganas de cuidarte, ganas de molestarte, ganas de escucharte y hasta ese miedo extraño
+de que una persona que se volvió tan importante pueda algún día alejarse.
+</p>
+
+<p>
+No voy a fingir que soy perfecto. Sé que tengo mi carácter, que puedo ser celoso, que a veces puedo ser posesivo, tambien impulsivo y que tengo 
+muchas cosas que mejorar.
+</p>
+
+<p>
+Pero también sé algo y es que contigo he recibido una cantidad de cariño que no estaba acostumbrado a recibir.
+</p>
+
+<p>
+Y eso para mí significa muchísimo. Porque quizás no siempre sé responder de la manera correcta. Quizás a veces no encuentro las palabras. Quizás 
+puedo hacerme el fuerte o actuar como si ciertas cosas no me afectaran. Pero la verdad es que sí me afectan.
+</p>
+
+<p>
+Me importas.
+</p>
+
+<p>
+Muchísimo.
+</p>
+
+<p>
+A veces me sorprende la cantidad de emociones que puede despertar una sola persona. Tú puedes hacer que un día normal tenga algo que esperar, que
+una canción tenga otro significado y que una conversación sencilla termine siendo algo que recuerdo durante horas. También has conseguido que me
+importe mucho más de lo que pensé que podía importarme alguien que todavía no he podido abrazar en persona. Eso me parece increíble, porque lo que
+siento no depende solamente de estar cerca físicamente.
+</p>
+
+<p>
+Contigo también he descubierto partes de mí que no siempre enseño. Me has hecho querer cuidar, amar, escuchar, mejorar y aprender a expresar cosas que
+antes me guardaba. Sé que todavía tengo mucho por trabajar en mí. Pero sí quiero que sepas que una de mis razones para intentarlo es que me importa
+la persona que estoy construyendo contigo. Me gustas, me importas y me haces querer ser alguien que pueda darte tranquilidad.
+</p>
+`
+
+},
+
+{
+title:"Lo que no siempre sé decir",
+preview:"A veces siento más de lo que logro explicar...",
+body:`<p>
+Hay muchas cosas que siento y que cuando llega el momento de decirlas simplemente no sé cómo hacerlo, siempre me ha costado mucho. Puedo estar 
+hablando contigo normalmente y tener mil cosas en la cabeza que quisiera decirte, pero termino diciendo cualquier otra cosa o los mismo porque me
+da pena o porque no encuentro la manera correcta.
+</p>
+
+<p>
+Por eso hice todo esto.
+</p>
+
+<p>
+No porque quiera hacer algo exageradamente perfecto, sino porque tal vez escribiendo puedo decirte cosas que cuando hablamos no me salen.
+</p>
+
+<p>
+Quiero que sepas que cuando te digo reina, bebé, mi vida, mami, hermosa o mi blanquita, no son solamente apodos. Cada uno tiene una pequeña parte 
+de lo que siento cuando pienso en ti. Y aunque sé que algunas veces pueda molestarte, hacerme el difícil o no saber cómo reaccionar, detrás de todo eso hay alguien que realmente te quiere 
+muchísimo. Alguien que todavía no ha aprendiendo cómo amar bien. Pero que contigo sí quiere aprender.
+</p>
+
+<p>
+Hay palabras que tengo en la cabeza y que cuando llega el momento de decirlas, no sé como hacerlo. Puedo saber exactamente lo que siento y aun así
+terminar respondiéndote con otra cosa. No es porque me falte tu cariño, muchas veces es precisamente porque me sobra y no sé por dónde empezar. Por
+eso intento escribir, tal vez me ayuda. Aquí puedo detenerme, pensar en ti y dejar que cada frase salga sin tener que preocuparme por quedarme en 
+blanco en una conversación.
+</p>
+
+<p>
+Quiero que estas cartas sean una manera de expresar todo lo que muchas veces no sé. Si alguna vez una respuesta mía parece corta, no pienses 
+automáticamente que lo que siento también es poco. Hay días en los que simplemente no sé acomodar todo lo que tengo dentro. Y contigo quiero
+aprender a hacerlo mejor, porque mereces saber no solo que te amo, sino también las razones, los detalles y las pequeñas cosas que hacen que ese 
+cariño siga creciendo.
+</p>
+`
+
+},
+
+{
+title:"Cuando me haces falta",
+preview:"Hay momentos en los que simplemente quisiera tenerte cerca...",
+body:`<p>
+Hay momentos en los que me gustaría poder simplemente decirte que vengas y te quedes conmigo un rato.
+</p>
+
+<p>
+Sin explicar nada. Sin escribir. Sin tener que esperar una respuesta. Solo tenerte cerca.
+</p>
+
+<p>
+Creo que una de las cosas que más espero de todo esto es el día en que podamos estar juntos físicamente y descubrir cómo se siente aquello que
+tantas veces hemos imaginado desde una pantalla. Quiero saber cómo se siente abrazarte. Quiero saber qué se siente tenerte cerca cuando estoy 
+teniendo un mal día. Quiero poder mirarte y decirte todas estas cosas sin tener que escribirlas. Y mientras ese momento llega, me conformo con 
+seguir construyendo estos recuerdos contigo.
+</p>
+
+<p>
+Hay una diferencia enorme entre poder hablar con alguien y poder tener a esa persona al lado. Contigo esa diferencia se siente especialmente porque
+todavía tenemos pendiente ese primer encuentro. Hay días en los que quisiera poder dejar el teléfono a un lado y simplemente sentarme contigo,
+preguntarte cómo estuvo tu día y escuchar tu respuesta sin que una señal, una batería o una pantalla se meta en medio. Me haces falta de una forma
+rara porque todavía no te he tenido cerca, pero ya conozco la sensación de querer que estuvieras aquí. No se si me entiendas.
+</p>
+
+<p>
+Cuando llegue ese día, probablemente muchas de estas palabras van a dejar de ser imaginación y se van a convertir en recuerdos. Quiero que haya un
+primer abrazo que dure más de lo necesario, una primera mirada que tal vez sea incómoda porque los dos vamos a estar nerviosos o por lo menos yo sí 
+y tambien un primer beso que ninguno de los dos pueda olvidar. No necesito que sea perfecto. Solo quiero que sea nuestro y que sea pronto. Y
+mientras tanto, voy a seguir guardando ganas de verte como quien guarda algo bonito para el momento correcto.
+</p>
+`
+
+},
+
+{
+title:"Las canciones que llevan tu nombre",
+preview:"Desde que llegaste, algunas canciones cambiaron...",
+body:`<p>
+Hay algo que quiero aclarar porque para mí es importante y es que todas las canciones que yo te mando son las que me hacen pensar en ti desde que 
+empiezan hasta que terminan. Y no es que escuche una canción y piense en ti solamente durante una frase bonita.Es que algunas canciones completas
+comenzaron a sentirse diferentes desde que apareciste tú.
+</p>
+
+<p>
+De repente una letra que antes simplemente sonaba bonita empezó a tener importancia. Una melodía empezó a recordarme una conversación. Una frase 
+empezó a parecerse demasiado a algo que quería decirte o algo que me haces sentir.
+</p>
+
+<p>
+Y por eso puse aquí algunas canciones. Para que puedas escucharlas cuando quieras. Para que si algún día suena alguna de ellas y estás sola, puedas
+pensar aunque sea por un momento que yo te la dediqué.
+</p>
+
+<p>
+Desde que apareciste, escuchar música dejó de ser exactamente lo mismo. Hay canciones que parecen que dijeran todo lo que yo siento por ti. 
+Empiezan y antes de que termine el primer verso, ya estoy pensando en ti. Me gusta esa sensación. Ahora hay canciones que siento como pequeños 
+mensajes que podría mandarte sin escribir una sola palabra.
+</p>
+
+<p>
+Y quiero seguir dedicandote canciones por mucho tiempo. Quiero que algún día tengamos canciones que nos recuerden momentos especificos una que 
+escuchamos mientras hablábamos de madrugada, otra que nos acompañó en un día difícil, otra para cuando nos extrañemos y así con todo. Si alguna 
+canción te recuerda a mí, me hace feliz. Pero si alguna vez escuchas una canción y automáticamente piensas en nosotros, creo que eso sería todavía
+más bonito.
+</p>
+`
+
+},
+
+{
+title:"Me gusta conocerte",
+preview:"Todavía siento que me faltan muchísimas cosas por descubrir de ti...",
+body:`<p>
+Aunque siento que te conozco muchísimo más que al principio, todavía tengo la sensación de que apenas estoy descubriendo todas las partes de ti.
+</p>
+
+<p>
+Quiero conocer tus pequeñas costumbres. Las cosas que te hacen feliz. Las que te molestan. Lo que te da miedo. Lo que sueñas hacer algún día. Lo
+que quieres conseguir. Las cosas que nunca le cuentas a nadie.
+</p>
+
+<p>
+Quiero conocer esas versiones tuyas que quizá no muestras normalmente.
+</p>
+
+<p>
+Y quiero que tú también puedas conocerme a mí.
+</p>
+
+<p>
+Incluso las partes complicadas, aunque de esas te vas a dar cuenta enseguida.
+</p>
+
+<p>
+No quiero presentarte solamente mi mejor versión y esconder todo lo demás. Quiero que algún día puedas conocerme de verdad, con mis defectos, mis
+problemas, mis inseguridades y también todas las cosas buenas que intento construir.
+</p>
+
+<p>
+Lo que más disfruto de conocerte es que todavía no siento que haya llegado al final de nada. Cada conversación puede traer un detalle nuevo. Puedo
+descubrir una algo tuyo que no conocía, una costumbre, una canción que te gusta, algo que te da miedo o algunas cosas que no te gusta. Yo quiero 
+conocer todas esas partes de ti.
+</p>
+
+<p>
+No quiero conocerte con prisa. Prefiero descubrirte con tiempo, porque cada cosa nueva me da una razón más para quedarme. Quiero saber qué te gusta
+cuando nadie te está preguntando, qué haces cuando estás feliz, qué necesitas cuando estás triste y qué cosas te hacen sentir verdaderamente amada.
+Quiero aprender tu manera de querer.
+</p>
+`
+
+},
+
+{
+title:"No soy perfecto",
+preview:"Quiero que conozcas también esta parte de mí...",
+body:`<p>
+No quiero escribirte solamente cosas bonitas y hacer como si yo fuera la mejor persona aunque ya es probable que te hayas dado cuenta de lo 
+contrario.
+</p>
+
+<p>
+Sé que tengo defectos. Sé que puedo ser complicado. Sé que puedo ser celoso y que a veces mi forma de querer puede ser demasiado intensa. También 
+sé que tengo cosas personales que todavía estoy aprendiendo a manejar. Pero hay algo que quiero que sepas, nunca quiero utilizar mis defectos como
+excusa para hacerte daño.
+</p>
+
+<p>
+Si algún día algo mío te molesta, quiero que me lo digas que yo voy a escucharte. Si algún día me equivoco, quiero aprender. Y si algún día me
+dices que estoy haciendo algo mal, quiero tener la madurez suficiente para entender que amarte no significa simplemente querer tenerte cerca, sino
+también respetarte, escucharte y dejarte ser tú. Porque quiero que conmigo puedas sentirte amada, no fastidiada o molesta.
+</p>
+
+<p>
+No quiero que estas cartas te hagan pensar que me creo perfecto o que siempre voy a saber qué hacer contigo. No es así. Tengo defectos, tengo días 
+malos, puedo ser terco y a veces reacciono antes de pensar. También tengo inseguridades que todavía estoy aprendiendo a manejar. Pero prefiero que 
+conozcas al que soy de verdad antes que inventarte una versión bonita que después no pueda sostener. Lo que sí puedo prometerte es que no quiero 
+usar mis defectos como excusa para tratarte mal.
+</p>
+
+<p>
+Si algo quiero construir contigo, quiero que tenga espacio para aprender. Quiero poder reconocer cuando me equivoco, escucharte cuando algo te
+duele y cambiar conductas que puedan hacerte sentir mal. No necesito que me veas como alguien perfecto; me gustaría que me vieras como alguien que
+te quiere y que está dispuesto a mejorar. Porque para mí amar a alguien también significa hacerse responsable de la manera en que ese cariño llega
+a la otra persona.
+</p>
+`
+
+},
+
+{
+title:"Tu carácter",
+preview:"Hay una parte de ti que me encanta aunque a veces me asuste...",
+body:`<p>
+Tengo que admitir algo y es que tu carácter me encanta.
+</p>
+
+<p>
+Sí, incluso esa parte en la que te molestas y yo inmediatamente pienso que mejor hago caso porque tienes una personalidad fuerte. Eres sensible, 
+pero eso no significa que seas débil. Al contrario. Tienes esa combinación rara de ternura y carácter que hace que puedas ser mi niña sensible y al
+mismo tiempo la persona que me haga cambiar de actitud de un momento a otro cuando estoy molesto.
+</p>
+
+<p>
+Y sinceramente, me gusta.
+</p>
+
+<p>
+Tu carácter es una de esas cosas que me causan una mezcla de ternura y respeto. Eres sensible, pero eso no significa que seas débil. De hecho,
+cuando hago algo te molesta aparece una versión tuya que me hace pensar muy rápido en lo que estoy haciendo. Y sí, muchas veces termino haciéndote
+caso casi de inmediato. No porque me dé miedo que te enojes, sino porque conozco la diferencia entre discutir por orgullo y escuchar a la persona 
+que me importa.
+</p>
+
+<p>
+Me gusta que tengas carácter. Me gusta que puedas decir cuando algo no te parece, que tengas límites y que no te quedes callada solo para agradar.
+Quiero que conmigo puedas ser dulce, intensa, sensible, seria o enojada sin sentir que tienes que esconder una parte de ti. Incluso cuando no 
+estemos de acuerdo, quiero aprender a hablarte con cariño y a entender qué hay detrás de lo que estás sintiendo.
+</p>
+`
+
+},
+
+{
+title:"Gracias por quererme",
+preview:"Tal vez no te lo digo suficiente...",
+body:`<p>
+Gracias.
+</p>
+
+<p>
+Así de sencillo.
+</p>
+
+<p>
+Gracias por amarme de la manera en que lo haces.
+</p>
+
+<p>
+Sé que probablemente para ti algunas cosas sean normales, pero para mí muchas han significado muchísimo porque no estaba acostumbrado a recibir
+tanto amor. Contigo he sentido cosas que antes no sabía cómo manejar. He sentido que alguien puede preocuparse por mí, querer hablar conmigo, 
+escucharme y hacerme sentir importante y eso para mi vale mucho.
+</p>
+
+<p>
+Aunque algún día estemos hablando de cualquier tontería, yo voy a recordar que hubo una persona que llegó y consiguió hacerme sentir querido de una
+manera que no esperaba.
+</p>
+
+<p>
+Esa persona eres tú.
+</p>
+
+<p>
+Hay una parte de tu cariño que tal vez no siempre sé agradecer como debería. A veces me acostumbro a tener tus mensajes, tus palabras bonitas y esa
+manera tuya de hacerme sentir amado, pero si me detengo a pensarlo, no es algo pequeño. Yo no estaba acostumbrado a recibir tanto cariño. Por eso 
+algunas veces puede costarme reaccionar de la forma que tú esperas. Estoy aprendiendo a recibirlo sin creer que en cualquier momento se va a
+acabar.
+</p>
+
+<p>
+Gracias por escogerme para compartir tus días. Gracias por contarme cosas, por buscarme, por dejarme entrar poco a poco en tu vida. Y gracias 
+incluso por las veces en las que me has hecho ver algo de mí que necesito cambiar.
+</p>
+`
+
+},
+
+{
+title:"Si pudiera estar contigo ahora",
+preview:"Probablemente no haría nada demasiado complicado...",
+body:`<p>
+Si pudiera aparecer ahora mismo donde estás, creo que al principio ni siquiera sabría qué decir. Probablemente me quedaría mirándote un momento 
+porque después de tanto tiempo hablando por una pantalla sería demasiado extraño tenerte finalmente enfrente. También es probable que me ponga 
+nervioso y después te daría un abrazo de esos que no quiero que se acaben nunca.
+
+<p>
+Si pudiera aparecer contigo durante una hora, creo que no necesitaría algo tan complicado. Me gustaría simplemente verte. Preguntarte cómo estás,
+escucharte hablar de cualquier cosa y observar esas pequeñas expresiones que desde una pantalla solo puedo imaginar. Seguramente al principio 
+estaría nervioso y no sabría ni dónde poner las manos. Después probablemente me acostumbraría a tenerte cerca y no querría que se acabara la hora 
+porque querría seguir dandote muchos besos y abrazos o incluso me darian ganas de hacer algo mas.
+</p>
+
+<p>
+Me gustaría aprovechar ese rato para hacer algo que por chat no se puede hacer igual,quedarme en silencio contigo sin sentir que el silencio es 
+incómodo. Poder caminar a tu lado, mirar hacia ti de vez en cuando y pensar que por fin la persona que tantas veces he imaginado está realmente 
+ahí. No pediría una escena perfecta. Pediría una hora real, contigo, y creo que me bastaría para convertir un día cualquiera en uno de mis favoritos.</p>
+`
+
+},
+
+{
+title:"Nuestro primer encuentro",
+preview:"Tengo curiosidad por saber cómo será ese día...",
+body:`<p>
+Pienso bastante en nuestro primer encuentro. No sé exactamente cómo será. No sé quién de los dos estará más nervioso. No sé si voy a saber qué 
+decir. No sé si me voy a quedar mirándote demasiado pero lo que sí sé es que quiero recordarlo.
+</p>
+
+<p>
+Quiero que algún día podamos mirar hacia atrás y decir: ¿te acuerdas de cuando todavía no nos habíamos visto y estábamos imaginando cómo sería?
+</p>
+
+<p>
+Y probablemente nos vamos a reír de todo lo que pensamos.Pero ese día llegará ycuando llegue, quiero abrazarte fuerte y pensar, por fin.
+</p>
+
+<p>Pienso mucho en nuestro primer encuentro porque será el momento en que muchas cosas que hoy imagino tendrán una respuesta. No sé quién se va a
+poner más nervioso, ni quién va a hablar primero, ni cuánto va a durar ese primer abrazo o el primer beso. Quizá los dos nos quedemos un segundo
+sin saber qué hacer. Y sinceramente, me gusta que sea así.
+</p>
+
+<p>
+Quiero recordar todos los detalles de ese día como qué llevabas puesto, qué fue lo primero que dijiste, cómo fue la primera vez que te tuve
+enfrente y qué sentí cuando por fin pude mirarte sin una pantalla. Quizá después nos riamos de los nervios. Quizá digamos que fue más sencillo de
+lo que imaginábamos. Sea como sea, quiero que ese día sea el inicio de recuerdos que podamos contar muchas veces.
+</p>
+`
+
+},
+
+{
+title:"Mi lugar favorito",
+preview:"Todavía no existe físicamente...",
+body:`<p>
+Todavía no sé cuál será nuestro lugar favorito. Quizá sea un sitio completamente normal como una cafetería, un parque, una calle, una esquina, una
+tienda o cualquier lugar que ni siquiera parezca especial. Pero si estoy contigo probablemente terminará siendo especial. porque creo que los
+lugares no siempre se vuelven importantes por lo bonitos que son. A veces se vuelven importantes por la persona con la que los compartiste.
+</p>
+
+<p>
+Si tuviera que elegir un lugar favorito sin pensarlo demasiado, probablemente elegiría cualquiera en el que pueda sentirme tranquilo contigo. No
+necesito que sea un sitio conocido ni que tenga una vista muy linda. Puede ser una banca, una calle mientras caminamos, un parque o simplemente una
+esquina donde podamos hablar sin que nadie nos moleste. Para mí el lugar empieza a importar menos cuando la compañía es la correcta.
+</p>
+
+<p>
+Creo que eso es lo que me gusta de imaginarte cerca, no pienso solamente en lugares, pienso en momentos. Me imagino comprando algo para comer y
+discutiendo por quién se queda con el último pedazo, caminando sin saber a donde o sentándonos a hablar hasta que se nos olvide mirar la hora. Si 
+algún día tengo que escoger mi lugar favorito, quiero que sea uno de esos lugares que me hagan recordarte.
+</p>
+`
+
+},
+
+{
+title:"Cuando te extraño",
+preview:"A veces no sé cómo explicar esa sensación...",
+body:`<p>
+Extrañarte es extraño porque todavía hay muchas cosas que ni siquiera hemos vivido juntos y aun así puedo sentir ganas de tenerte cerca. Supongo
+que eso pasa cuando alguien se vuelve parte de tu rutina. Cuando esperas su mensaje. Cuando quieres contarle algo. Cuando ocurre algo durante el
+día y automáticamente piensas "esto se lo tengo que contar". Eso haces tú conmigo.
+</p>
+
+<p>
+Te has convertido en alguien a quien quiero contarle mis cosas.
+</p>
+
+<p>
+Extrañarte es raro porque nuestra historia todavía tiene una parte pendiente que es conocernos físicamente. Aun así, hay momentos en los que siento
+esa necesidad de tenerte cerca. Me pasa cuando quiero contarte algo inmediatamente, cuando escucho una canción que sé que te gustaría o cuando 
+simplemente tengo ganas de hablar contigo y no estás disponible. Es como si mi día hubiera aprendido a dejar un espacio para ti y, cuando no estás,
+ese espacio se nota.
+</p>
+
+<p>
+No quiero convertir la distancia en algo triste todo el tiempo. También quiero verla como una etapa que algún día vamos a recordar y decir que 
+a pesar de no poder estar cerca, encontramos maneras de estar para el otro. Cada conversación, cada canción y cada carta es una pequeña forma de 
+acercarnos. Y cuando por fin llegue el día de vernos, quiero abrazarte y besarte con todas esas ganas que te tengo y también sentir que cada 
+momento de espera tuvo sentido.
+</p>
+`
+
+},
+
+{
+title:"Quiero hacerte feliz",
+preview:"No quiero que mi única forma de demostrarte cariño sean palabras...",
+body:`<p>
+Quiero hacerte feliz y no solamente con mensajes bonitos.
+</p>
+
+<p>
+Quiero que algún día puedas mirar hacia atrás y recordar momentos conmigo que te hagan sonreír. Quiero que cuando estés conmigo sientas que puedes
+ser completamente tú.
+</p
+</p>
+
+<p>
+No quiero prometerte que voy a conseguir que estés feliz todos los días, porque sé que la vida no funciona así. Habrá días difíciles, cansancio, 
+discusiones y momentos en los que ninguno de los dos tenga mucha paciencia. Pero sí quiero que cuando estés conmigo sientas que hay alguien que
+genuinamente desea verte bien. Quiero aprender cuáles son tus pequeños detalles favoritos, qué palabras te tranquilizan y qué cosas puedo hacer
+cuando necesites un poquito de cariño.</p>
+
+<p>
+También quiero entender que hacerte feliz no significa intentar solucionarte todo. A veces quizá solo necesites que te escuche. O que me quede. O 
+que te diga que estoy aquí. Quiero aprender esa diferencia. Si algún día estás triste, no quiero apurarte para que se te pase, quiero acompañarte
+hasta que te sientas un poco mejor. Y si estás feliz, quiero disfrutarlo contigo.
+</p>
+`
+
+},
+
+{
+title:"Tu voz",
+preview:"Hay cosas que una pantalla no puede reemplazar...",
+body:`<p>
+Hay algo que todavía me falta y que algún día quiero tener: escucharte estando realmente cerca y no por una llamada o por un audio sino estando 
+contigo.
+</p>
+
+<p>
+Quiero escuchar cómo hablas cuando estás emocionada, cuando estás cansada, cuando estás feliz y cuando estás molesta conmigo. Quiero conocer todas
+esas pequeñas diferencias que probablemente solo aparecen cuando uno está realmente cerca de alguien.
+</p>
+
+<p>
+Tu voz tiene una forma de quedarse en mi cabeza. Incluso cuando una conversación termina, a veces recuerdo la manera en que dijiste algo, una risa 
+o una expresión que usaste. Es curioso cómo algo tan sencillo puede hacer sentir cerca a alguien que está lejos. Creo que por eso me gustaría tanto
+algún día escucharte hablar estando a mi lado, poder notar esas pequeñas cosas que por un mensaje no se pueden sentir igual.
+</p>
+
+<p>
+Quiero tener recuerdos asociados a tu voz. Quiero escucharla mientras caminamos, mientras me cuentas algo que te emociona, mientras te quejas de 
+algo que te molestó y también cuando estés medio dormida y hables más despacio. Quizá son detalles pequeños, pero son precisamente esos detalles 
+son los que hacen que conocer a alguien sea especial. Yo quiero conocerlos todos contigo, sin afán y sin saltarme ninguna parte.
+</p>
+`
+
+},
+
+{
+title:"Cuando estés triste",
+preview:"Si algún día esta carta aparece en un momento malo...",
+body:`<p>
+Si estás leyendo esto porque estás triste, quiero que hagas una cosa antes de seguir.
+</p>
+
+<p>
+Respira.
+</p>
+
+<p>
+No tienes que solucionar todo ahora mismo.
+</p>
+
+<p>
+No tienes que fingir que estás bien. Mucho menos tienes que sentir que tienes que cargar todo sola. Si puedo hacer algo por ti, quiero hacerlo. Y 
+si no puedo solucionar lo que te pasa, por lo menos quiero quedarme contigo mientras pasa.
+</p>
+
+<p>
+No siempre necesitamos una solución. A veces solo necesitamos saber que tenemos una persona en quien apoyarnos.
+</p>
+
+<p>
+Yo quiero ser esa persona para ti.
+</p>
+
+<p>
+Cuando estes triste quiero que hagas una pausa antes de pensar que tienes que solucionar todo sola. No puedo prometer que siempre voy a saber qué
+decir, pero sí puedo prometerte que voy a intentar escucharte. No tienes que fingir conmigo que estás bien. Yo quiero conocer esos días en los que
+no tienes ganas de hablar, en los que todo pesa un poco más y en los que simplemente necesitas sentir que alguien está ahí.
+</p>
+
+<p>
+Si pudiera estar a tu lado en uno de esos momentos, probablemente no intentaría llenarte de discursos. Te daría un abrazo, te haría mimitos en la 
+espalda y esperaría a que tú decidieras si quieres contarme qué pasa. Quiero que conmigo puedas llorar sin sentir vergüenza, estar en silencio sin
+sentir presión y volver a sonreír cuando estés lista. 
+</p>
+
+<p>
+Cuando estes triste solo dimelo, yo quiero ser tú compañía también en sus días difíciles.
+</p>
+`
+
+},
+
+{
+title:"Cuando estés feliz",
+preview:"Esta carta es para esos días bonitos...",
+body:`<p>
+Y si estás leyendo esto porque estás feliz, entonces sonríe y no por la carta sino por lo que sea que te hizo feliz.
+</p>
+
+<p>
+Quiero que tengas muchísimos días así.
+</p>
+
+<p>
+Días en los que todo salga bien, en los que te sientas bonita, querida, orgullosa de ti misma y tranquila. Y si algún día puedo formar parte de
+alguna de esas razones por las que sonríes, créeme que voy a sentirme demasiado feliz.
+</p>
+
+<p>
+Quiero conocer esa versión tuya que se emociona por cosas pequeñas, que se ríe sin importarle quien la escuche y que tiene ganas de contarle a
+alguien todo lo que le pasó. Quiero celebrar tus logros no me importa si son cosas pequeñas. Si algo te sale bien, quiero ser de los que se alegran
+contigo de verdad, no solo de los que responden un mensaje bonito. Tus alegrías también me importan porque ya eres una parte importante de mis días.</p>
+
+<p>
+Y espero que algún día tengamos tantas cosas para celebrar que terminemos haciendo una lista de recuerdos felices. Un logro tuyo, una salida, una 
+canción, un cumpleaños, alguna cosa que nos dio demasiada risa. No quiero que nuestra historia esté hecha solamente de momentos intensos. También
+quiero esos días tranquilos en los que simplemente estamos bien y no necesitamos ninguna razón especial para sentirnos felices.
+</p>
+`
+
+},
+
+{
+title:"No quiero correr",
+preview:"Quiero que lo nuestro tenga tiempo...",
+body:`<p>
+No quiero correr solamente porque me emocione lo que siento. Quiero que podamos conocernos de verdad, que podamos construir algo bonito sin tener 
+que aparentar que todo tiene que ser perfecto desde el primer día. Quiero aprenderte y quiero que me aprendas. También quiero que podamos
+equivocarnos, hablar, arreglar las cosas y seguir creciendo porque si algún día llegamos a ser oficialmente algo, quiero que sea porque ambos 
+realmente queremos estar ahí.
+</p>
+
+<p>
+Me gustas demasiado como para querer convertir todo lo nuestro en una carrera. No necesito que mañana tengamos todas las respuestas que hoy todavía
+no tenemos. Prefiero que nos conozcamos bien, que descubramos qué nos hace bien y que cada paso tenga sentido para los dos. Lo bonito de lo que 
+estamos viviendo es precisamente que todavía estamos escribiendo la historia y quiero disfrutar las páginas en lugar de saltar directamente al 
+final.
+</p>
+
+<p>
+Quiero que cada cosa llegue cuando tenga que llegar. Las primeras veces, las conversaciones importantes, los planes, los nervios y hasta esas 
+pequeñas discusiones que nos enseñan cómo somos cuando no pensamos igual. Si algún día damos un paso más, quiero que sea porque los dos lo
+sentimos y no porque nos sentimos obligados a hacerlo. Me gusta lo que tenemos y quiero cuidarlo.
+</p>
+`
+
+},
+
+{
+title:"Lo que espero de nosotros",
+preview:"No espero una historia perfecta...",
+body:`<p>
+No espero una historia perfecta.
+</p>
+
+<p>
+Espero una historia real.
+</p>
+
+<p>
+Una donde existan días increíbles y días difíciles.
+</p>
+
+<p>
+Una donde podamos reírnos de cosas estupidas y también hablar seriamente cuando haga falta.
+</p>
+
+<p>
+Una donde podamos decirnos la verdad.
+</p>
+
+<p>
+Una donde ninguno tenga que dejar de ser quien es para que el otro sea feliz.
+</p>
+
+<p>
+Y sobre todo, una donde ambos queramos quedarnos.
+</p>
+
+<p>
+Cuando pienso en nosotros no imagino una relación perfecta. Imagino algo real. Dos personas que se quieren, que a veces se entienden a la primera y
+otras veces necesitan explicarse mejor. 
+</p>
+
+<p>
+Imagino conversaciones largas, molestarnos porque si, salidas improvisados y también momentos en los que toca sentarse a hablar en serio. Eso es lo
+que espero, que podamos ser nosotros mismos sin tener que actuar como si nunca fuéramos a equivocarnos.
+</p>
+
+<p>
+Espero que podamos construir confianza. Que cuando algo nos moleste podamos decirlo antes de dejar que se convierta en un problema enorme. Que
+celebremos lo bueno y nos acompañemos en lo difícil. Y sobre todo espero que con el tiempo aprendamos a cuidarnos. Para mí esa diferencia es enorme
+y es una de las cosas que más quiero conseguir contigo.
+</p>
+`
+
+},
+
+{
+title:"Hay algo que admiro de ti",
+preview:"No es solamente tu apariencia...",
+body:`<p>
+Claro que me pareces hermosa. Tus ojos, tu sonrisa, tu carita y todo eso que ya sabes que me vuelve loco. Pero hay algo más.
+</p>
+
+<p>
+Me gusta la persona que eres.
+</p>
+
+<p>
+Me gusta tu sensibilidad.
+</p>
+
+<p>
+Me gusta que tengas carácter.
+</p>
+
+<p>
+Me gusta que tengas tu propia forma de pensar.
+</p>
+
+<p>
+Me gusta que no seas simplemente alguien bonita.
+</p>
+
+<p>Admiro tu sensibilidad porque siento que es una parte muy verdadera de ti. Te importan las cosas y las personas, y eso hace que puedas sentirlas
+con mucha intensidad. También admiro que tengas carácter y que no seas de las que simplemente dicen que sí a todo. Hay algi en ti que quizá 
+tú misma no notes siempre, pero yo sí la noto. Me gusta quien eres: la niña sensible y la mujer que sabe hacerse respetar.
+</p>
+
+<p>
+Quiero que nunca sientas que tienes que apagar ninguna de esas partes para gustarme. No quiero una versión de ti más cómoda para mí, quiero
+conocerte completa. Quiero estar cuando estés cariñosa, cuando estés seria, cuando estés sensible y cuando tengas esa cara que me dice que hice 
+alguna mal. Para mí quererte también significa respetar todo lo que te hace ser tú.
+</p>
+`
+
+},
+
+{
+title:"Quiero aprender a quererte mejor",
+preview:"Porque querer a alguien también significa aprender...",
+body:`<p>
+Yo sé que querer a alguien no significa automáticamente saber cómo hacerlo perfectamente.
+</p>
+
+<p>
+A veces uno tiene buenas intenciones y aun así puede equivocarse. Por eso quiero aprender qué necesitas, qué te hace sentir querida, qué cosas te 
+molestan, cuándo necesitas espacio y cuándo necesitas que me quede.
+</p>
+
+<p>
+Quiero aprender todo eso porque no quiero solamente decir que te amo y que no puedas sentirlo.
+</p>
+
+<p>
+Quererte no debería ser solamente sentir mucho. También debería ser aprender. Aprender cómo te gusta recibir cariño, cuándo necesitas espacio, 
+cuándo necesitas que te abrace aunque no lo digas y cuándo lo mejor que puedo hacer es escucharte. Sé que algunas de esas cosas no las voy a saber
+enseguida. Por eso quiero que podamos enseñarnos mutuamente sin convertir cada error en una sentencia definitiva.
+</p>
+
+<p>
+Quiero aprender tus cosas, pero también quiero que podamos hablarlas. No quiero adivinar todo, quiero conocerte lo suficiente para preguntar
+cuando no esté seguro. Y quiero que tú también puedas decirme qué necesitas de mí. Si con el tiempo conseguimos que los dos podamos sentirnos
+queridos de la manera que necesitamos, creo que habremos construido algo mucho más bonito que cualquier cosa romántica.
+</p>
+`
+
+},
+
+{
+title:"Si alguna vez dudas",
+preview:"Quiero que recuerdes esto...",
+body:`<p>
+Si algún día dudas de lo que siento por ti, vuelve a esta carta.
+</p>
+
+<p>
+Recuerda que hubo un momento en el que ni siquiera tenía teléfono y aun así busqué la manera de poder hablar contigo. Que compré un teléfono que
+ni siquiera era el que quería solamente porque lo único que me importaba en ese momento era poder seguir hablando contigo.
+</p>
+
+<p>
+Quizá no sea la demostración más grande del mundo. Pero para mí dice muchísimo. Porque desde muy temprano hubo algo en ti que me hizo querer 
+hacer un esfuerzo.
+</p>
+
+<p>
+Si alguna vez dudas de lo que siento, quiero que recuerdes que esto no nació de un impulso de un día. Hubo nervios, decisiones pequeñas, horas
+hablando, canciones compartidas y muchísimas conversaciones que fueron haciendo espacio para ti. 
+</p>
+
+<p>
+No puedo controlar todas las dudas que puedan aparecer, pero sí puedo intentar que mis acciones sean coherentes con mis palabras. Quiero que tengas
+razones reales para sentirte importante, no solamente cartas bonitas que leer cuando todo está bien.
+</p>
+
+<p>
+Y si alguna vez tienes miedo de no ser suficiente, quiero que sepas algo y es que no estoy buscando una versión perfecta de ti. Me gustan tus
+detalles, tus rarezas, tu sensibilidad. No necesito que seas otra persona para querer conocerte. Si algún día algo te preocupa, dímelo. Prefiero 
+saber qué pasa dentro de tu cabeza y poder hablarlo contigo antes que dejar que una duda crezca entre los dos.
+</p>
+`
+
+},
+
+{
+title:"Me cambiaste cosas",
+preview:"Llegaste y algunas cosas empezaron a sentirse diferentes...",
+body:`<p>
+No voy a decir que llegaste a solucionar mi vida pero sí puedo decir que llegaste a cambiar algunas cosas.
+</p>
+
+<p>
+Ahora hay alguien a quien quiero contarle cosas.
+</p>
+
+<p>
+Alguien cuyos mensajes espero.
+</p>
+
+<p>
+Alguien que puede cambiar mi estado de ánimo con una conversación.
+</p>
+
+<p>
+Alguien cuya felicidad me importa.
+</p>
+
+<p>
+Y esa persona eres tú.
+</p>
+
+<p>
+Desde que llegaste hay pequeñas costumbres mías que cambiaron sin que yo las planeara. Ahora estoy dejando de hacer las cosas que no te gustan, 
+me preocupo muchisimo como estas y algunas cosas que antes me daban igual ahora quiero contártelas.
+</p>
+
+<p>
+También cambiaste algo más, me hiciste querer expresar cariño. Tal vez todavía no lo hago perfecto, pero antes muchas cosas me las guardaba y ya.
+Contigo me nacieron ganas de escribir, de dedicar canciones, de pensar en detalles y de decirte cosas que normalmente me daría pena decir. Me gusta
+esa versión de mí. Y me gusta que haya aparecido porque tú llegaste a mi vida.
+</p>
+`
+
+},
+
+{
+title:"Mi parte favorita del día",
+preview:"A veces es algo tan sencillo como verte aparecer...",
+body:`<p>
+Hay días en los que mi parte favorita simplemente es hablar contigo.
+</p>
+
+<p>
+No importa si estamos hablando de algo importante o de la cosa más absurda.
+</p>
+
+<p>
+Me gusta que seas tú. Me gusta saber que al otro lado estás tú.
+</p>
+
+<p>
+A veces basta una conversación normal para que el día se sienta mejor.
+</p>
+
+<p>
+No tengo una hora exacta que pueda llamar mi favorita. A veces es cuando aparece tu mensaje, otras cuando tenemos una conversación donde me mandas
+muchas fotos y videos tuyas que me encantan y otras simplemente cuando recuerdo algo tuyo y sonrío solo. Creo que mi parte favorita del día 
+depende de cuándo apareces tú.
+</p>
+
+<p>
+Me gustaría que algún día mi parte favorita del día sea simplemente llegar a verte. Que después de tantas conversaciones por ig o wpp pueda existir
+ese momento de encontrarnos. Hasta entonces, voy a guardar esas pequeñas partes de mis días en las que apareces tú. Porque quizá parezcan momentos
+mínimos, pero juntos terminan formando una parte bastante grande de mi vida.
+</p>
+`
+
+},
+
+{
+title:"Quiero verte reír",
+preview:"Hay algo que quiero provocar muchas veces...",
+body:`<p>
+Quiero verte reír muchísimo. 
+<p>
+
+Quiero ser responsable de algunas de esas sonrisas tontas que aparecen cuando alguien recibe un mensaje especial, molestarte hasta que te rías,
+decirte cosas bonitas cuando menos las esperes. Quiero que si algún día estás teniendo un día horrible, un mensaje mío consiga sacarte aunque sea 
+una pequeña sonrisa. Porque si puedo hacer eso, ya voy a sentir que hice algo bien.
+</p>
+
+<p>
+Quiero descubrir qué tan contagiosa es tu risa cuando no existe una pantalla para separarnos. Tengo curiosidad por saber qué haces cuando algo te
+da muchísima risa, si intentas controlarte o si simplemente te ries sin importar que. 
+</p>
+
+<p>
+Y sí, quiero ser responsable de algunas de esas risas. No todas, porque también quiero que tengas muchísimos motivos para reír que no tengan nada
+que ver conmigo. Pero me haría feliz saber que en algún recuerdo tuyo aparece una tarde en la que estuvimos juntos, dijimos puras bobadas y
+terminamos riéndonos hasta cansarnos. Esos momentos sencillos pero especiales son los que quiero guardar.
+</p>
+`
+
+},
+
+{
+title:"Una promesa pequeña",
+preview:"No quiero hacer promesas gigantes...",
+body:`<p>
+No quiero prometerte cosas imposibles ni decirte palabras bonitas solamente porque suenan bien. Prefiero hablarte desde lo que realmente puedo
+darte y desde lo que sé que quiero construir contigo.
+</p>
+
+<p>
+No soy perfecto y sé que todavía tengo muchas cosas que aprender. Pero quiero esforzarme por ser mejor contigo, por escucharte de verdad y por
+intentar entender lo que sientes, incluso cuando no sea fácil para mí hacerlo. También quiero aprender a manejar mis inseguridades para que no
+terminen hablando por mí y termine embarrándolas contigo.
+</p>
+
+<p>
+Sobre todo quiero que puedas sentir que conmigo tienes a alguien que te ama de verdad. Alguien con quien puedas hablar de lo que te pasa sin sentir 
+que tienes que esconderlo o guardártelo para evitar un problema.
+</p>
+
+<p>
+No quiero llenarte de grandes promesas, porque sé que decir para siempre o asegurar que nunca voy a equivocarme es muy fácil cuando solamente se
+trata de palabras. Por eso prefiero prometerte algo mucho más sencillo y para mí mucho más importante, es amarte, respetarte y sobre todo ser 
+honesto contigo.
+</p>
+
+<p>
+Quiero que incluso cuando tengamos una conversación incómoda, puedas saber qué estoy sintiendo y qué pasa por mi cabeza. No quiero que tengas 
+que estar adivinando si estoy triste, molesto, preocupado o simplemente teniendo un mal día. Quiero aprender a hablar de lo que me duele en lugar
+de encerrarme y también quiero compartir contigo aquello que me hace feliz, porque no quiero que solamente conozcas mis problemas, sino también
+todo eso que me hace sonreír.
+</p>
+
+<p>
+Y si algún día me equivoco, quiero tener la madurez para reconocerlo. No quiero convertir nuestros errores en una pelea por descubrir quién tiene
+la razón. Quiero entender que en una relación también existe espacio para equivocarse, reconocerlo, aprender y seguir adelante.
+</p>
+
+<p>
+Así que no mi vida, no quiero prometerte que voy a ser perfecto, porque sé que no lo soy. Lo que sí quiero es que, mientras estemos juntos, tengas 
+la seguridad de que voy a seguir intentando. Intentando escucharte, entenderte, ser transparente contigo y aprender de cada cosa que nos pase.
+</p>
+
+<p>
+Porque para mí quererte no significa prometerte una relación sin problemas. Significa querer construir contigo una relación en la que cuando
+aparezcan los problemas, los dos tengamos razones para quedarnos, hablar, entendernos y volver a intentarlo.
+</p>
+`
+
+},
+
+{
+title:"Lo que quiero cuidar",
+preview:"Hay algo que para mí vale demasiado...",
+body:`<p>
+Quiero cuidar lo que tenemos.
+</p>
+
+<p>
+No quiero cuidar lo nuestro solamente porque tenga miedo de perderlo. Quiero hacerlo porque cuando algo realmente importa, uno no debería
+limitarse a sentirlo, sino también demostrarlo en la manera en que actúa, en la atención que presta y en la importancia que le da a las cosa.
+</p>
+
+<p>
+Hay muchas cosas que quiero cuidar contigo. Quiero cuidar nuestras conversaciones, esos momentos en los que podemos hablar durante horas. Quiero
+cuidar también las conversaciones más serias, esas en las que nos contamos cosas que quizá no le contaríamos a cualquier persona. Porque cada vez
+que me abres un espacio en tu vida y decides confiarme algo, siento que me estás entregando una pequeña parte de ti y no quiero tratarla como si
+fuera cualquier cosa.
+</p>
+
+<p>
+También quiero cuidar la confianza que estamos construyendo. Sé que la confianza no aparece de un día para otro y tampoco se mantiene solamente
+diciendo que confiamos el uno en el otro. Se construye con acciones, con sinceridad, con respeto y con la tranquilidad de saber que podemos
+mostrarnos como somos sin tener que estar pensando todo el tiempo en cómo va a reaccionar el otro.
+</p>
+
+<p>
+Por eso también quiero cuidar la forma en la que te hablo. A veces puedo decir algo sin pensar demasiado y no darmecuenta de cuánto puede
+afectarte. Se que así como una palabra puede hacerte sentir amada, también puede terminar lastimándote. Quiero aprender a tener presente eso 
+contigo. No quiero que por un momento de molestia, una inseguridad o una mala reacción termine haciéndote sentir menos amada de lo que realmente
+eres para mí.
+</p>
+
+<p>
+Quiero prestar atención a tus detalles, a esas cosas que me cuentas casi sin darle importancia. A lo que te gusta, a lo que no te gusta, a las
+historias que me cuentas, a las fechas que para ti significan algo y hasta a esas pequeñas cosas que quizá tú piensas que voy a olvidar. No quiero
+hacerlo porque quiera memorizar cada parte de ti como si fueras una lista que tengo que aprenderme. Quiero hacerlo porque cuando alguien me
+importa, me nace conocerlo de verdad..
+</p>
+
+<p>
+Me importa saber qué te hace feliz, qué cosas te emocionan, qué cosas te preocupan y cuáles son esas pequeñas cosas que pueden cambiarte el día. 
+Porque para mí prestar atención también es una manera de querer. A veces el cariño no está en hacer algo enorme, sino simplemente en recordar algo
+que la otra persona dijo hace tiempo y demostrarle que realmente la estabas escuchando.
+</p>
+
+<p>
+Y sobre todo, quiero cuidar cómo te sientes conmigo.
+</p>
+
+<p>
+Quiero que puedas sentir tranquilidad cuando estés conmigo, que puedas hablarme cuando necesites hacerlo y que nunca sientas que tienes que medir 
+cada palabra por miedo a cómo voy a reaccionar. Quiero que puedas ser tú, incluso en tus días malos, cuando estés emputada o cuando simplemente no
+tengas ganas de hablar demasiado. No quiero quererte solamente cuando todo está bien, también quiero aprender a estar presente cuando las cosas no
+sean tan fáciles.
+</p>
+
+<p>
+Porque si algún día llegamos a construir algo realmente bonito, quiero que sea algo que los dos sintamos que vale la pena cuidar.
+</p>
+
+<p>
+Y quizá eso es lo que más quiero que entiendas hermosa, no quiero cuidar lo nuestro únicamente porque tenga miedo de perderte. Quiero cuidarlo
+porque tú me importas. Porque lo que estamos construyendo me importa. Porque cada conversación, cada recuerdo, cada detalle y cada momento en el
+que decides compartir una parte de ti conmigo es importante para
+</p>
+`
+
+},
+
+{
+title:"Mi lugar seguro",
+preview:"Hay conversaciones contigo que me hacen sentir tranquilo...",
+body:`<p>
+Hay algo que quizá nunca te he dicho de la manera en la que realmente lo siento: contigo he encontrado una tranquilidad que no sabía que necesitaba.
+</p>
+
+<p>
+Cuando hablo contigo desaparezcan todos mis problemas por un momento aunque eso no significa que espero que tú tengas que solucionarlos. Sé que no
+es tu responsabilidad arreglar lo que me pasa. Es algo mucho más sencillo que eso. A veces simplemente necesito hablar contigo, escucharte, saber
+que estás ahí y sentir que por un momento puedo dejar de pensar en todo lo demás.
+</p>
+
+<p>
+Y creo que eso empezó a pasar sin que ninguno de los dos se diera cuenta.
+</p>
+
+<p>
+Contigo no siento que siempre tenga que encontrar las palabras perfectas. Puedo aparecer un día estando bien, otro día estando cansado, preocupado
+o simplemente con la cabeza llena de cosas y aun así sentir que puedo hablarte.
+</p>
+
+<p>
+Porque tú has hecho algo que quizá ni siquiera sabes cuánto significa para mí, me has hecho sentir escuchado y amado.
+</p>
+
+<p>
+Como cuando tú misma me has dicho que no quieres que esté mal, que te preocupas por cómo estoy y que estás ahí para mí. Quizá para ti sean palabras 
+normales porque eres así conmigo, pero para mí pesan mucho.
+</p>
+
+<p>
+También quiero que tú puedas encontrar eso en mi.
+</p>
+
+<p>
+No quiero que sientas que solamente estoy aquí cuando todo está bien o cuando estamos diciéndonos cosas lindas. Quiero que puedas venir a mí cuando
+tengas un mal, cuando estés cansada, preocupada o simplemente cuando necesites desconectarte de todo. Quiero poder escucharte y acompañarte.
+</p>
+
+<p>
+Quiero que puedas decirme “hoy no estoy bien” y sentir que no tienes que explicarme perfectamente el por qué o si necesitas sacar todo lo que
+tienes adentro, solo dime, yo te voy a escuchar e intentare que te sientas mejor.
+</p>
+
+<p>
+Y también quiero que exista ese otro lado, el bonito.
+</p>
+
+<p>
+Que podamos mandarnos cualquier cosa molestar al otro y terminar riéndonos. Que podamos hablar hasta que alguno de los dos ya esté muerto del 
+sueño. Que podamos contarnos de todo. Que pueda llegar un mensaje tuyo y sin importar cómo haya sido mi día, hacerme sonreír.
+</p>
+
+<p>
+Y eso eres tú para mí bebé, mi lugar seguro.
+</p>
+
+<p>
+No quiero que cargues conmigo ni que te conviertas en la persona que tenga que arreglar cada cosa que me pase. Quiero algo mucho mejor, que podamos
+acompañarnos. Que si algún día uno de los dos está pasando por algo, el otro pueda estar ahí, no necesariamente para solucionarlo, sino para hacer
+que ese momento se sienta un poquito menos pesado.
+</p>
+
+<p>
+Quiero que cuando tú necesites descansar de todo, también puedas encontrar un poquito de paz conmigo.
+</p>
+
+<p>
+Porque si algo me has enseñado en este tiempo es que sentirse amado también puede sentirse como tranquilidad. Cómo saber que hay alguien que se
+preocupa por cómo estás. Cómo poder hablar sin aguantar nada. Cómo hablar contigo después de haber tenido un día pesado. Cómo leer un “tranquilo,
+mi amor” y sentir que aunque el problema siga ahí, ya no estoy solo.
+</p>
+
+<p>
+Y quizás por eso me gusta tanto hablar contigo.
+</p>
+
+<p>
+No solamente porque me haces feliz, aunque lo haces muchísimo. No solamente porque amo tu sonrisa y tus ojitos, aunque sabes perfectamente cuánto
+me encantan. Me gusta porque contigo puedo sentir muchas cosas al mismo tiempo, puedo ser cursi, puedo ser un bobo, puedo contarte lo que me
+preocupa, puedo molestarte, puedo reírme contigo y también puedo mostrarte partes de mí que normalmente no sé cómo mostrar.
+</p>
+
+<p>
+Eso, para mí, es sentirme seguro.
+</p>
+
+<p>
+Y si algún día consigo que tú sientas conmigo aunque sea una pequeña parte de esa tranquilidad que tú me das, voy a sentir que estoy haciendo algo
+bien.
+</p>
+
+<p>
+Porque no quiero ser solamente alguien que te ama muchísimo.
+</p>
+
+<p>
+Quiero ser también esa persona a la que puedas acudir cuando necesites hablar, desahogarte, distraerte o simplemente sentir que no estás sola.
+</p>
+`
+
+},
+
+{
+title:"Lo que más quiero conocer",
+preview:"Hay una parte de ti que todavía no conozco...",
+body:`<p>
+Hay una parte de ti que todavía siento que apenas estoy empezando a descubrir y creo que justamente eso es una de las cosas que más me gustan de
+conocerte.
+</p>
+
+<p>
+Porque por más que hablemos y por más cosas que ya sepa de ti, todavía existen versiones tuyas que no conocía. Esa Hannia que sale cuando estás
+completamente tranquila, cuando no estás pensando en qué decir ni en cómo te estás viendo. La que se ríe de cualquier bobada, la que se emociona
+muchísimo por algo pequeño, la que se queda pensando cuando algo le importa o la que simplemente disfruta de estar tranquila sin tener que
+explicarle nada a nadie.
+</p>
+
+<p>
+Me gustaría saber qué haces cuando tienes un día completamente para ti, qué cosas buscas cuando necesitas distraerte, qué te hace sentir realmente
+feliz y cuáles son esas pequeñas cosas que pueden cambiarte el ánimo sin que nadie más se dé cuenta. También me gustaría conocer esas partes de tu
+vida que existían mucho antes de que yo apareciera, porque sé que hay recuerdos, personas, lugares y momentos que ayudaron a convertirte en la
+persona que eres hoy.
+</p>
+
+<p>
+Quiero escuchar tus historias, incluso esas que probablemente ya hayas contado muchas veces. Quiero saber qué recuerdos de cuando eras pequeña
+todavía te hacen sonreír, qué cosas soñabas hacer cuando eras niña y cuáles de esos sueños todavía siguen contigo ahora. Me interesa saber qué
+cosas te emocionan cuando piensas en tu futuro y cuáles te dan un poquito de miedo..
+</p>
+
+<p>
+No porque quiera saberlo todo de ti de una sola vez, sino porque me gusta la idea de ir descubriéndote poco a poco.
+</p>
+
+<p>
+Y también quiero conocer esa parte de ti que quizá no muestras tan fácilmente. Lo que piensas cuando estás preocupada, las cosas que te cuesta
+decir, aquello que te da miedo perder y las cosas que necesitas para sentirte verdaderamente tranquila con alguien. No quiero que sientas que
+tienes que contarme todo inmediatamente. Algunas cosas necesitan tiempo y yo prefiero que me las vayas mostrando cuando realmente tengas ganas de
+hacerlo, no porque yo te diga todo esto.
+</p>
+
+<p>
+Porque creo que conocer a alguien de verdad no es saber una lista de sus gustos sino entender sus pequeñas maneras de ser, reconocer cuándo algo le
+pasa aunque diga que está bien, saber qué cosas le hacen ilusión y cuáles son esas partes de su personalidad que solamente aparecen cuando se
+siente completamente cómoda.
+</p>
+
+<p>
+Y eso es precisamente lo que espero poder llegar a conocer de ti mi reina.
+</p>
+`
+
+},
+
+{
+title:"No quiero olvidarme de este comienzo",
+preview:"Porque algún día vamos a mirar atrás...",
+body:`<p>
+Hay una cosa de nosotros que quiero guardar tal como fue y es este comienzo.
+</p>
+
+<p>
+No quiero recordarlo solamente por lo que pasó después, sino por cómo se sentía cuando todavía no sabía qué iba a pasar contigo. Cuando cada 
+conversación era algo nuevo y yo todavía estaba intentando entender por qué me daban tantas ganas de seguir hablando contigo.
+</p>
+
+<p>
+Me gusta pensar en esa etapa porque todavía no existían todas las cosas que ahora hacen parte de nosotros. Todavía no estaban todas nuestras
+conversaciones, las veces que nos burlamos de otros, los momentos en los que nos hemos contado cosas que probablemente no le contamos a cualquiera.
+Todo eso todavía estaba por pasar.
+</p>
+
+<p>
+Y aun así, ya había algo que me hacía querer quedarme.
+</p>
+
+<p>
+Creo que eso es lo que más quiero recordar. Esa sensación de estar conociendo a alguien y no tener idea de hasta dónde podía llegar. No sabía
+cuánto ibas a terminar importándome, ni cuánto espacio ibas a ocupar en mis días. Simplemente me gustaba hablar contigo y quería seguir
+descubriendo qué había detrás de esa niña con la que estaba empezando a compartir tantas cosas.
+</p>
+
+<p>
+También quiero acordarme de cómo poco a poco empezaste a volverte parte de mis días sin que yo lo planeara. Primero eras una persona con la que
+quería hablar y después empecé a querer contarte cosas que me pasaban, mandarte canciones, saber cómo estabas o simplemente buscar cualquier
+cosa para tener una conversación contigo.
+</p>
+
+<p>
+Supongo que así es como empiezan algunas cosas importantes. Sin avisar.
+</p>
+
+<p>
+Uno no se despierta un día y decide exactamente cuándo alguien se volvió importante. Simplemente pasa. Un día te das cuenta de que esperas su
+mensaje, de que algo te ocurre y quieres contárselo, de que escuchas una canción y piensas en esa persona. Y cuando miras hacia atrás ya hay un
+montón de pequeños momentos que hicieron que dejara de ser alguien más.
+</p>
+
+<p>
+Eso quiero recordar de nosotros.
+</p>
+
+<p>
+Quiero acordarme de las conversaciones que todavía tenían esa emoción de estar descubriéndonos. De las cosas que me daban curiosidad sobre ti.
+De las veces que seguramente dije alguna bobada y después me quedé pensando si había dicho algo raro. De esas pequeñas cosas que en ese momento
+parecían normales y que algún día probablemente voy a mirar con muchísimo cariño.
+</p>
+
+<p>
+Porque algún día vamos a tener recuerdos que todavía ni siquiera existen. Vamos a poder hablar de lugares donde estuvimos, cosas que hicimos,
+días buenos, días malos, momentos en los que nos reímos muchísimo y otros en los que nos tocó aprender a entendernos.
+</p>
+
+<p>
+Y cuando llegue ese momento, quiero seguir acordándome de la niña que estaba empezando a conocer.
+</p>
+
+<p>
+De cómo poco a poco fui descubriendo tu forma de ser, tus gustos, tus maneras de hablar, tus ocurrencias y todas esas pequeñas cosas que hicieron
+que me encariñara contigo sin darme cuenta.
+</p>
+
+<p>
+No quiero olvidar que antes de todo lo que podamos llegar a ser, hubo una etapa en la que simplemente éramos dos personas con ganas de conocerse.
+</p>
+
+<p>
+Y sinceramente mi amor, me gusta muchísimo que haya sido así.
+</p>
+
+<p>
+Porque no tuvimos que saber desde el principio qué iba a pasar. Solo tuvimos que seguir hablando.
+</p>
+
+<p>
+Una conversación llevó a otra, un día llevó al siguiente y poquito a poquito llegaste a convertirte en alguien que hoy significa muchísimo para mí.
+</p>
+
+<p>
+Por eso quiero guardar este comienzo. No porque haya sido perfecto, sino porque fue nuestro. Porque aquí todavía no sabíamos todo lo que nos
+esperaba y aun así decidimos seguir conociéndonos.
+</p>
+
+<p>
+Y si algún día estamos mucho más adelante y volvemos a leer esto, quiero que podamos sonreír pensando en aquella época en la que todavía no
+sabíamos todo lo que íbamos a vivir juntos.
+</p>
+
+<p>
+Porque yo sí quiero acordarme de cuando apenas estábamos empezando a ser nosotros.
+</p>
+`
+
+},
+
+{
+title:"Si algún día vemos esto juntos",
+preview:"Me imagino enseñándote estas cartas...",
+body:`<p>
+Me imagino algún día sentado contigo enseñándote esto y probablemente voy a sentir muchísima vergüenza.
+</p>
+
+<p>
+Tú vas a leer algunas cosas y seguramente te vas a reír de mí y yo probablemente voy a decirte que no leas esa parte, pero quiero que pase porque
+significaría que todo esto dejó de ser solamente una pantalla y se convirtió en un recuerdo que compartimos en persona.
+</p>
+
+<p>
+Me imagino un futuro en el que podamos abrir estas cartas juntos y leerlas como quien revisa una caja de recuerdos. Quizá algunas frases nos den
+pena, quizá otras nos hagan reír y quizá alguna nos haga quedarnos en silencio porque recordamos exactamente lo que estábamos viviendo cuando la
+escribí. Me gusta imaginar esa escena porque significaría que todo esto dejó de ser una idea y se convirtió en una historia que realmente vivimos.
+</p>
+
+<p>
+Si ese día llega, quiero mirarte mientras lees y pensar en todo lo que cambió desde esta etapa. Quiero poder decirte que algunas cosas que escribí
+aquí se hicieron realidad y que otras fueron reemplazadas por recuerdos todavía mejores. Y si nos reímos de mi dramatismo, lo voy a aceptar. Solo
+espero poder decirte al final mira todo lo que construimos desde aquel momento.
+</p>
+`
+
+},
+
+{
+title:"Mi niña",
+preview:"Hay una ternura especial cuando pienso en ti...",
+body:`<p>
+A veces cuando pienso en ti simplemente me sale decirte mi niña. No porque crea que seas pequeña. Sino porque siento una ternura enorme por ti.
+</p>
+
+<p>
+Quiero cuidarte, consentirte, molestarte y hacerte sentir especial. Quiero que puedas ser fuerte cuando quieras y también puedas permitirte ser 
+sensible cuando lo necesites. No quiero que tengas que demostrar fortaleza todo el tiempo.
+</p>
+
+<p>
+Te digo mi niña porque hay una parte de mí que quiere cuidarte, preguntarte si comiste, saber cómo estás y asegurarse de que tengas un lugar donde
+puedas bajar la guardia. Al mismo tiempo, sé que eres una persona fuerte, con tus propias decisiones y tu propio carácter. 
+.</p>
+
+<p>
+Quiero que puedas sentirte querida sin sentirte controlada. Quiero cuidarte sin invadirte, acompañarte sin decidir por ti y estar pendiente sin 
+convertir eso en una carga. Si alguna vez digo 'mi niña', quiero que detrás de esas palabras se sienta cariño. Porque para mí 
+quererte también significa respetar que eres tú, con tu libertad, tus sueños y tu manera de hacer las cosas.
+</p>
+`
+
+},
+
+{
+title:"Mi reina",
+preview:"Este nombre tiene una razón...",
+body:`<p>
+Te digo reina porque así te veo.
+</p>
+
+<p>
+No porque seas perfecta. Sino porque tienes algo que hace que para mí seas especial.
+</p>
+
+<p>
+Tu forma de ser.
+</p>
+
+<p>
+Tu manera de hablar.
+</p>
+
+<p>
+Tu carácter.
+</p>
+
+<p>
+Tu sensibilidad.
+</p>
+
+<p>
+Tus ojos.
+</p>
+
+<p>
+Tu sonrisa.
+</p>
+
+<p>
+Todo eso forma la persona de la que me fui enamorando poco a poco.
+</p>
+
+<p>
+Decirte mi reina me sale de una manera muy natural. Tiene algo de admiración y algo de cariño. Cuando pienso en ti, no solamente pienso en que eres
+hermosa pienso en la forma en que has logrado hacerte un espacio en mi vida. Me gusta tratarte con esa ternura porque siento que mereces escuchar
+cosas bonitas, pero también quiero que esas palabras estén respaldadas por acciones y no se queden solamente en un apodo.
+</p>
+
+<p>
+Quiero que algún día puedas mirar todo lo que hemos vivido y entender por qué te llamaba así desde el principio. Porque para mí una reina no es
+alguien perfecta ni alguien que nunca se equivoca. Es alguien que merece respeto, cuidado y un lugar especial. Y ese lugar es precisamente el que
+poco a poco, fuiste ganando en mí sin que yo pudiera evitarlo.
+</p>
+`
+
+},
+
+{
+title:"Tus pequeños detalles",
+preview:"Hay cosas que haces sin darte cuenta y que para mí significan muchísimo..",
+body:`<p>
+A veces haces cosas que para ti seguramente son normales, pero que a mí me encantan. Puede ser la forma en que me hablas, las fotos y videos que me
+mandas, cuando me cuentas algo de tu día, o simplemente cuando sacas tiempo para hablar conmigo. Son cosas pequeñas, pero yo las noto.
+</p>
+
+<p>
+Y creo que eso es algo bonito de querer a alguien. Que empiezas a darle importancia a cosas que antes probablemente ni habrías notado. Me gusta
+cuando haces esas pequeñas cosas sin pensarlo, porque siento que salen de ti de verdad. No necesito que siempre hagas algo enorme para hacerme
+feliz. A veces con un mensaje tuyo me basta. Con una palabra bonita. Con una bobada que me haga reír. Con cualquier cosa que venga de ti.
+</p>
+
+<p>
+Y probablemente tú ni te imaginas cuántas veces una cosa pequeña que haces termina por mejorarme el día. Por eso quería que supieras que sí las
+noto hermosa. Tal vez no siempre te lo digo, pero las guardo. Y me encantan.
+</p>
+`
+
+},
+
+{
+title:"Cuando pienso en el futuro",
+preview:"No quiero imaginarlo todo de golpe...",
+body:`<p>
+No sé exactamente qué va a pasar con nosotros y está bien, no necesito saberlo todo ahora.
+</p>
+
+<p>
+Pero cuando pienso en el futuro, sí me gusta imaginar que habrá más conversaciones, más risas, más canciones, más momentos y finalmente más 
+recuerdos en persona.
+</p>
+
+<p>
+Quiero descubrirlo contigo.
+</p>
+
+<p>
+Cuando pienso en el futuro contigo intento no inventarme una película completa. Prefiero imaginar pequeñas escenas como una salida juntos, una
+conversación después de un día largo, una canción sonando mientras hacemos cualquier cosa, una foto que después nos dé risa o un domingo en el que
+no tengamos ningún plan. Esas cosas sencillas son las que me parecen más reales y por eso mismomás bonitas.
+</p>
+
+<p>
+No sé exactamente qué va a pasar y no quiero fingir que lo sé. Pero sí sé que me gustaría que tuvieras un lugar en muchos de esos futuros posibles.
+Me gustaría que dentro de un tiempo sigamos teniendo ganas de contarnos cosas, de vernos y de construir algo. 
+</p>
+`
+
+},
+
+{
+title:"Te elegiría otra vez",
+preview:"Si pudiera volver al principio...",
+body:`<p>
+Si pudiera volver al día en que no tenía teléfono y Ángel me dijo que querías hablar conmigo, lo volvería a hacer.
+</p>
+
+<p>
+Volvería a pedir prestado un teléfono.
+</p>
+
+<p>
+Volvería a poner mi SIM.
+</p>
+
+<p>
+Volvería a estar nervioso pensando qué decirte.
+</p>
+
+<p>
+Volvería a comprar aquel teléfono que ni siquiera era el que quería.
+</p>
+
+<p>
+Porque al final de todo, valió la pena.
+</p>
+
+<p>
+Porque te conocí a ti.
+</p>
+
+<p>
+Si pudiera volver al momento en que todavía no sabía todo lo que iba a pasar y alguien me dijera que podía conocer a una persona que iba a terminar
+importándome tanto, creo que volvería a escoger hablarte. Incluso sabiendo los nervios, las esperas, las dudas y todo lo que todavía nos falta
+resolver, volvería a tomar ese pequeño riesgo.
+</p>
+
+<p>
+Cuando comenzamos a hablar no necesitábamos tener garantías por si no funcionaba. Solo necesitábamos decidir que valía la pena conocernos. Hoy con
+todo lo que ya sé de ti, la decisión me parece todavía más fácil. Te volvería a escribir, volvería a buscar la manera de hablar contigo y volvería 
+a elegir la oportunidad de descubrir qué podía pasar entre nosotros.
+</p>
+`
+
+},
+
+{
+title:"Quiero ser un lugar bonito para ti",
+preview:"No quiero ser otra preocupación en tu vida.",
+body:`<p>
+Entre tantas cosas que pueden cansarte en un día, quiero que yo no sea una más.
+</p>
+
+<p>
+Quiero que cuando hables conmigo puedas sentir que llegaste a un lugar donde no tienes que estar cuidando cada palabra.
+</p>
+
+<p>
+Quiero escucharte cuando tengas ganas de hablar y acompañarte cuando simplemente necesites sentir que alguien está ahí.
+</p>
+
+<p>
+No quiero que nuestra relación se trate solamente de decirnos cosas bonitas. También quiero aprender a quererte de una forma que te haga sentir
+tranquila.
+</p>
+
+<p>
+Porque para mí amar a alguien no debería sentirse como estar caminando con cuidado todo el tiempo.
+</p>
+
+<p>
+Quiero que conmigo puedas ser sincera, reírte, molestarte, hacer bromas, contarme cosas sin importancia y también hablar de las que sí importan.
+</p>
+
+<p>
+Y ojalá alguna vez consiga que mi presencia sea uno de esos lugares donde tú puedes sentirte en paz.
+</p>
+`
+
+},
+
+{
+title:"Quiero que te quedes",
+preview:"No como una obligación...",
+body:`<p>
+Quiero que te quedes, pero no porque tengas que hacerlo. Quiero que te quedes porque cuando estés conmigo te nazca hacerlo. Quiero que podamos 
+construir algo donde ninguno tenga que sentirse obligado a permanecer. Quiero que ambos podamos mirar al otro y pensar "quiero estar aquí".
+</p>
+
+<p>
+Eso es lo que realmente deseo.
+</p>
+
+<p>
+Cuando digo que quiero que te quedes, no quiero decir que tengas que quedarte sin importar cómo te sientas. Quiero decir que me gustaría que
+sigamos eligiendo estar aquí mientras los dos podamos sentirnos bien. Quiero que te quedes porque encuentras tranquilidad, cariño y ganas de
+compartir, no porque una obligación te lo pida. 
+
+<p>
+Para mí, que alguien se quede por elección vale muchísimo más que alguien que se queda por costumbre.
+</p>
+
+<p>
+Yo también quiero demostrarte razones para quedarme a tu lado. Quiero aprender a conversar cuando haya problemas, a disfrutar cuando haya calma y a
+no dar por sentado que siempre vas a estar. Si alguna vez tengo la oportunidad de construir algo contigo, quiero que sea algo que ambos podamos 
+decir "aquí me siento querido, aquí puedo ser yo, aquí vale la pena quedarse".
+</p>
+`
+
+},
+
+{
+title:"Hay una versión de mí contigo",
+preview:"Una versión que no aparece con cualquiera...",
+body:`<p>
+Contigo aparece una versión de mí que no siempre muestro.
+</p>
+
+<p>
+Una versión más sensible, cariñosa, nerviosa, preocupada por lo que tu puedassentir y creo que eso dice muchísimo porque no dejo entrar a
+cualquiera tan fácilmente y tampoco trato a nadie así, solo a mi hermanita. Pero ahora a ti tambien.
+</p>
+
+<p>
+Contigo aparece una versión de mí que habla más, siente más y se atreve a mostrar cosas que normalmente escondo. No sé si siempre me gusta esa
+versión, porque también me hace más vulnerable. Pero creo que hay algo bueno en eso. Me obliga a reconocer que me importas y que no puedo esconder
+todo detrás de una actitud de indiferencia. Con otras personas puedo hacerme el tranquilo, contigo muchas veces se me nota todo.
+</p>
+
+<p>
+Quiero que esa versión de mí aprenda a ser mejor, no solo más intensa. Quiero que sea capaz de querer sin miedo, de confiar sin imaginar siempre lo
+peor y de expresar lo que siente sin convertirlo en presión para ti. Si tú sacaste una parte más cariñosa de mí, quiero cuidar esa parte y 
+enseñarle a crecer de una manera sana y bonita.
+</p>
+`
+
+},
+
+{
+title:"Mi carta más sincera",
+preview:"Si tuviera que decirlo sin adornarlo...",
+body:`<p>
+Si tuviera que quitar todas las palabras bonitas y simplemente decirte lo que siento, sería algo muy sencillo.
+</p>
+
+<p>
+Te amo muchísimo.
+</p>
+
+<p>
+Me importas.
+</p>
+
+<p>
+Me encanta hablar contigo.
+</p>
+
+<p>
+Me encanta verte sonreír.
+</p>
+
+<p>
+Me encantan tus ojos.
+</p>
+
+<p>
+Me encanta tu carita.
+</p>
+
+<p>
+Me encanta tu forma de ser.
+</p>
+
+<p>
+Y me encanta saber que existe alguien como tú en mi vida.
+</p>
+
+<p>
+No sé qué pasará mañana.
+</p>
+
+<p>
+Pero hoy, mientras escribo esto, quiero que sepas que eres la persona que más he amado en todo mi vida.
+</p>
+
+<p>
+Me importas muchísimo. No necesito una palabras complicada para explicar eso. 
+</p>
+
+<p>
+Me importas cuando hablamos, cuando no hablamos, cuando estoy feliz y cuando tengo un día difícil. 
+</p>
+
+<p>
+Me importas en las pequeñas decisiones y en las cosas que me hacen pensar "esto se lo tengo que contar". 
+</p>
+
+<p>
+Te volviste  parte de mis días y espero que lo seas siempre.
+</p>
+
+<p>
+También quiero ser sincero con algo más y es que me da miedo perderte. No porque crea que eres algo que me pertenece, sino porque sé lo difícil que
+es encontrar a alguien con quien uno realmente quiera compartir tantas cosas. Ese miedo no quiero convertirlo en control. Quiero convertirlo en
+cuidado, comunicación y ganas de hacer las cosas bien. Porque si te quiero, también quiero que te sientas libre y amada a mi lado.
+</p>
+`
+
+},
+
+{
+title:"Si pudiera decirte algo ahora",
+preview:"No necesitaría pensarlo demasiado...",
+body:`<p>
+Si pudiera tenerte enfrente ahora mismo y solamente pudiera decirte una cosa, creo que te miraría y te diría:
+</p>
+
+<p>
+Gracias por ser tú.
+</p>
+
+<p>
+Gracias por no ser alguien más, por tener esa personalidad que tienes, por tus mensajes, por tu cariño, por haber querido hablar conmigo aquel día
+porque una decisión que quizá para ti fue sencilla terminó cambiando muchísimo para mí.
+</p>
+
+<p>
+Si estuvieras frente a mí ahora mismo y me preguntaras qué quiero decirte, probablemente me quedaría unos segundos en silencio. No porque no tenga
+nada que decir, sino porque tendría demasiado. Tal vez empezaría por decirte que eres hermosa y después me desviaría hablando de tus ojos, tu
+sonrisa, tu forma de ser y todas las pequeñas cosas que me gustan de ti. Al final seguramente terminaría riéndome de mis propios nervios.
+</p>
+
+<p>
+Pero si resumiera todo en una frase, sería "gracias por hacer que conocer a alguien volviera a sentirse emocionante". Me gusta tener una persona a quien quiero contarle cosas, dedicarle
+canciones y escribirle cartas. Me gusta la ilusión de saber que todavía tenemos un primer encuentro pendiente y muchas historias que podrían
+existir. Y me gusta pensar que si algún día te digo todo esto mirándote, voy a poder hacerlo sin una pantalla que me esconda.
+</p>
+`
+
+},
+
+{
+title:"Esta no quiero que la olvides",
+preview:"Guarda esto para cuando lo necesites...",
+body:`<p>
+Nunca quiero que pienses que tienes que ser perfecta para ser querida.
+</p>
+
+ <p>
+No tienes que tener siempre una sonrisa.
+</p>
+
+<p>
+No tienes que estar siempre bien.
+</p>
+
+<p>
+No tienes que esconder cuando algo te duele.
+</p>
+
+<p>
+Puedes ser sensible.
+</p>
+
+<p>
+Puedes molestarte.
+</p>
+
+<p>
+Puedes tener días malos.
+</p>
+
+<p>
+Puedes equivocarte.
+</p>
+
+<p>
+Sigues siendo tú.
+</p>
+
+<p>
+Y eso es precisamente lo que quiero.
+</p>
+
+<p>
+Quiero que guardes esta carta por una razón sencilla, quiero que recuerdes que hubo un momento en el que yo estaba aquí, intentando encontrar
+palabras para explicarte lo importante que te habías vuelto. Tal vez con el tiempo algunas cosas cambien, porque todo cambia, pero espero que nunca
+pienses que este amor fue fingido. Lo que sentí mientras escribía cada palabra fue real, incluso cuando no sabía exactamente qué hacer con todo lo
+que estaba sintiendo.
+</p>
+
+<p>
+Si algún día tienes una duda, vuelve a esta carta y recuerda algo más, no tienes que ganarte mi cariño siendo perfecta. No tienes que sonreír
+siempre, responder siempre bien ni tener el día perfecto. Quiero conocerte también cuando estés cansada, seria o sensible. Y si alguna vez llegamos
+a mirar atrás, quiero que puedas decir que al menos durante esta etapa hubo alguien que intentó hacerte sentir muy querida.
+</p>
+`
+
+},
+
+{
+title:"Mi favorita",
+preview:"De todas estas palabras, hay una que resume todo...",
+body:`<p>
+De todas estas cartas, de todas estas palabras y de todo lo que podría intentar explicarte, hay algo que resume absolutamente todo.
+</p>
+
+<p>
+Me haces feliz.
+</p>
+
+<p>
+Tal vez no todos los días sean perfectos.
+</p>
+
+<p>
+Tal vez existan problemas, discusiones, momentos raros o días en los que no sepamos qué decirnos.
+</p>
+
+<p>
+Pero incluso con todo eso, me haces feliz.
+</p>
+
+<p>
+Y creo que eso es una de las cosas más bonitas que puede provocar una persona en otra.
+</p>
+
+<p>
+Hay cartas que hablan de recuerdos, otras de deseos y otras de cosas que todavía no existen. Esta me gusta porque junta un poquito de todo. Me
+recuerda que no necesito elegir una sola cosa de ti para explicar por qué me gustas. Podría hablar durante horas de tus ojos y todavía me faltarían
+tu sonrisa, tu carácter, tu sensibilidad, tu manera de hablar y todas las cosas que todavía no conozco.
+</p>
+
+<p>
+Quizá por eso esta carta sea mi favorita porque no intenta encontrar una razón única. Tú eres muchas cosas al mismo tiempo y eso es precisamente lo
+que me encanta. Eres mi blanquita cuando quiero ser tierno, mi reina cuando quiero admirarte, mi bebé cuando quiero consentirte y esa persona que 
+simplemente me gusta cuando no necesito ningún apodo. Si algún día me preguntas qué es lo que más me gusta de ti, probablemente te diga que toda
+tú.
+</p>
+`
+
+},
+
+{
+title:"Para cuando me extrañes",
+preview:"Si algún día necesitas sentirme cerca...",
+body:`<p>
+Si algún día me extrañas, vuelve aquí.
+</p>
+
+<p>
+Pon una canción.
+</p>
+
+<p>
+Lee una carta.
+</p>
+
+<p>
+Mira alguna de las cosas que hemos compartido.
+</p>
+
+<p>
+Y recuerda que en algún lugar existe una persona que pensó en ti mientras escribía todo esto.bUna persona que estaba intentando encontrar las
+palabras correctas para decirte algo que quizá nunca había sabido explicar.
+</p>
+
+<p>
+Que te ama muchisimooooooooooooooo.
+</p>
+
+<p>
+Si algún día me extrañas, quiero que recuerdes que probablemente yo también voy a estar pensando en ti. Quizá no exactamente en el mismo minuto ni
+por la misma razón, pero seguramente habrá algo durante mi día que me lleve hacia ti. Una canción, una conversación, una foto, una palabra o
+simplemente esas ganas repentinas de hablarte. Así funciona ahora mi cabeza contigo, apareces en lugares donde antes no estabas.
+</p>
+
+<p>
+Cuando llegue ese momento de vernos, quiero que toda esta distancia tenga una recompensa sencilla, poder acercarme y abrazarte sin tener que decir
+nada primero. Quiero que ese abrazo tenga un poquito de todas las veces que nos hemos extrañado. 
+</p>
+
+<p>
+Y si después no queremos soltarnos rápido, no voy a ser yo quien se queje. Mientras tanto, guarda esta carta como un pequeño abrazo escrito para
+los días en que te haga falta estar más cerca de mi.
+</p>
+`
+
+},
+
+{
+title:"No necesito una razón para quererte hoy",
+preview:"Hoy te quiero porque eres tú. Y para mí eso ya es suficiente.",
+body:`<p>
+Hoy no quiero buscar una razón bonita para decirte que te quiero.
+</p>
+
+<p>
+No quiero hacer una lista de todo lo que me gusta de ti.
+</p>
+
+<p>
+Solamente quiero decirte que te amo porque eres tú.
+</p>
+
+<p>
+Porque entre tantas personas, terminaste siendo esa persona que mi corazón escogió de una manera que ni yo sé explicar completamente.
+</p>
+
+<p>
+Y aunque podría escribir muchísimo sobre ti, hay días en los que siento que ninguna explicación alcanza.
+</p>
+
+<p>
+Así que hoy solamente quiero dejar esto aquí:
+</p>
+
+<p>
+Te amo bebé.
+</p>
+`
+
+},
+
+{
+title:"Para mi hermosa",
+preview:"Porque sé que te gusta que te lo diga...",
+body:`<p>
+Hermosa.
+</p>
+
+<p>
+Así te veo y no solamente porque seas físicamente hermosa. También por la manera en que puedes hacer sentir a alguien querido. Por la forma en que
+puedes ser sensible y fuerte al mismo tiempo.
+</p>
+
+<p>
+Por esa personalidad que tienes.
+</p>
+
+<p>
+Por tus ojos.
+</p>
+
+<p>
+Por tu sonrisa.
+</p>
+
+<p>
+Por tu carita que me emboba.
+</p>
+
+<p>
+Por todo eso que hace que cuando pienso en ti me salga una sonrisa sin darme cuenta.
+</p>
+
+<p>
+Hermosa es un apodo que quiero usar solamente por cómo te ves. Claro que me encanta tu carita, tus ojos, tu sonrisa y todo eso que me deja 
+mirándote más de la cuenta cuando mandas una foto. Pero también me parece hermosa tu manera de sentir, la forma en que te importan las personas y
+esa personalidad que no se puede resumir en una sola palabra. Hay belleza en la forma en que eres, no solamente en lo que veo.
+</p>
+
+<p>
+Por eso mi amor, quiero que nunca sientas que tienes que cambiar tu esencia para ser querida. Puedes crecer, aprender y cambiar de opinión, todos
+lo hacemos. Pero quiero que siempre conserves esa parte tuya que te hace ser Hannia. Yo quiero conocerla, cuidarla y recordarte cuando haga falta
+que no tienes que compararte con nadie.
+</p>
+
+<p>
+Para mí, tu forma de ser tiene un valor que ninguna foto podría explicar completamente.</p>
+`
+
+},
+
+{
+title:"La última por ahora",
+preview:"Aunque sabes perfectamente que no será realmente la última...",
+body:`<p>
+Llegaste hasta aquí.
+</p>
+
+<p>
+Y si de verdad leíste todas estas cartas, quiero agradecerte por regalarme ese tiempo.
+</p>
+
+<p>
+Porque cada una de estas palabras existe por una razón.
+</p>
+
+<p>
+Hay cosas que quería decirte desde hace tiempo.
+</p>
+
+<p>
+Hay recuerdos que quería guardar.
+</p>
+
+<p>
+Hay sentimientos que me costaba explicar.
+</p>
+
+<p>
+Y hay partes de mí que quería que conocieras.
+</p>
+
+<p>
+Pero esta no es realmente la última carta.
+</p>
+
+<p>
+Porque mientras sigamos juntos, siempre habrá algo nuevo que decirte.
+</p>
+
+<p>
+Quizá mañana sea otra canción.
+</p>
+
+<p>
+Quizá otro recuerdo.
+</p>
+
+<p>
+Quizá una nueva carta.
+</p>
+
+<p>
+O quizá simplemente un mensaje que diga:
+</p>
+
+<p>
+<strong>Te extraño mi reina.</strong>
+</p>
+
+<p>
+Así que no pienses que esto termina aquí.
+</p>
+
+<p>
+Esto solamente es una pequeña parte de todo lo que todavía quiero vivir contigo.
+</p>
+
+<p>
+Llegar a esta carta no significa que se acabaron las cosas que quiero decirte. Podría llenar muchas más cartas y seguramente seguiría encontrando
+cosas que quiero decirte. Pero por ahora voy a dejarlas hasta aquí. 
+</p>
+
+<p>
+Empecé escribiendo porque sentía que había muchas cosas que no te había dicho o que no había sabido expresar en el momento. Y mientras escribía, me
+di cuenta de que siempre iba a quedar algo más. Probablemente podría llenar muchas páginas y todavía encontraría una nueva razón para hablar de ti.
+</p>
+
+<p>
+Así que quiero que esta sea una última carta por ahora, porque se que habrán muchas despues. Quiero que las próximas palabras no tengan que vivir
+solamente aquí. Quiero que algunas aparezcan en conversaciones, en canciones dedicadas, en abrazos, en planes y en recuerdos que todavía no
+existen. Por eso prefiero decirte que estas cartas solamente fueron una pequeña parte de todo lo que quiero darte y decirte.
+</p>
+
+<p>
+Gracias por llegar, mi reina. Gracias por ser mi blanquita, mi bebé, mi vida y mi hermosa. Y gracias por darme una historia que todavía tiene
+muchísimo por escribir.
+</p>
+
+<p>
+Te amo demasiado mi blanquita.
+</p>
+
+<p>
+Y todavía tengo mucho amor para darte
+</p>
+`
+
+}
+
+];
+
+
+/* ============================================================
+   SISTEMA
+============================================================ */
+
+const STORAGE_VERSION = "v3";
+
+let unlocked =
+    Number(localStorage.getItem("hannisUnlocked_" + STORAGE_VERSION));
+
+if(!Number.isInteger(unlocked) || unlocked < 1 || unlocked > letters.length){
+    unlocked = 1;
+    localStorage.setItem("hannisUnlocked_" + STORAGE_VERSION, "1");
+}
+
+let readLetters =
+    JSON.parse(localStorage.getItem("hannisRead_" + STORAGE_VERSION) || "[]");
+
+// Esta versión empieza desde cero: una sola carta disponible y ninguna marcada como leída.
+readLetters = readLetters.filter(n => Number.isInteger(n) && n >= 1 && n <= letters.length);
+if(unlocked === 1){
+    readLetters = [];
+    localStorage.setItem("hannisRead_" + STORAGE_VERSION, "[]");
+}
+
+let currentLetter = null;
+
+
+/* ============================================================
+   MOSTRAR CARTAS
+============================================================ */
+
+function renderLetters(){
+
+    const grid=
+        document.getElementById("lettersGrid");
+
+    grid.innerHTML="";
+
+    letters.forEach((letter,index)=>{
+
+        const number=index+1;
+
+        const card=document.createElement("article");
+
+        const isUnlocked=
+            number<=unlocked;
+
+        const isRead=
+            readLetters.includes(number);
+
+        card.className=
+            "letter-card " +
+            (!isUnlocked ? "locked" : "");
+
+        card.innerHTML=`
+
+            <div>
+
+                <div class="letter-number">
+                    Carta ${number}
+                </div>
+
+                <h3>
+                    ${letter.title}
+                </h3>
+
+                <p>
+                    ${isUnlocked
+                        ? letter.preview
+                        : "Esta carta todavía está esperando su momento."
+                    }
+                </p>
+
+                ${
+                    isRead
+                    ?
+                    `<div class="check">
+                        ✓ Ya leída
+                    </div>`
+                    :
+                    ``
+                }
+
+            </div>
+
+            <button
+                class="open-letter"
+                ${!isUnlocked ? "disabled" : ""}
+                onclick="openLetter(${index})"
+            >
+
+                ${
+                    !isUnlocked
+                    ? "🔒 Todavía no"
+                    : isRead
+                    ? "Volver a leer"
+                    : "Abrir carta"
+                }
+
+            </button>
+
+        `;
+
+        grid.appendChild(card);
+
+    });
+
+
+    if(readLetters.length >= letters.length){
+
+        document
+        .getElementById("finalMessage")
+        .classList.add("show");
+
+    }
+
+}
+
+
+/* ============================================================
+   ABRIR CARTA
+============================================================ */
+
+function openLetter(index){
+
+    if(index+1>unlocked){
+        return;
+    }
+
+    currentLetter=index;
+
+    const letter=letters[index];
+
+    document
+    .getElementById("letterTitle")
+    .textContent=letter.title;
+
+    document
+    .getElementById("letterBody")
+    .innerHTML=letter.body;
+
+    document
+    .getElementById("letterDate")
+    .textContent=
+        "Para mi niña 🤍";
+
+    document
+    .getElementById("letterModal")
+    .classList.add("show");
+
+    document.body.style.overflow="hidden";
+
+}
+
+
+/* ============================================================
+   TERMINAR CARTA
+============================================================ */
+
+document
+.getElementById("finishButton")
+.addEventListener("click",function(){
+
+    const number=currentLetter+1;
+
+    if(!readLetters.includes(number)){
+
+        readLetters.push(number);
+
+        localStorage.setItem(
+            "hannisRead_" + STORAGE_VERSION,
+            JSON.stringify(readLetters)
+        );
+
+    }
+
+
+    if(number===unlocked && unlocked<letters.length){
+
+        unlocked++;
+
+        localStorage.setItem(
+            "hannisUnlocked_" + STORAGE_VERSION,
+            unlocked
+        );
+
+    }
+
+    closeLetter();
+
+    renderLetters();
+
+});
+
+
+/* ============================================================
+   CERRAR CARTA
+============================================================ */
+
+function closeLetter(){
+
+    document
+    .getElementById("letterModal")
+    .classList.remove("show");
+
+    document.body.style.overflow="";
+
+}
+
+
+/* ============================================================
+   CORAZONES
+============================================================ */
+
+function createHeart(){
+
+    const heart=
+        document.createElement("div");
+
+    heart.className="heart";
+
+    const symbols=[
+        "♡",
+        "♥",
+        "🤍",
+        "♡",
+        "♥",
+        "♡",
+        "♥"
+    ];
+
+    heart.textContent=
+        symbols[Math.floor(
+            Math.random()*symbols.length
+        )];
+
+    heart.style.left=
+        Math.random()*100+"vw";
+
+    heart.style.fontSize=
+        (12+Math.random()*18)+"px";
+
+    heart.style.animationDuration=
+        (5+Math.random()*7)+"s";
+
+    heart.style.opacity=
+        (.25+Math.random()*.5);
+
+    const heartColors=["#ffffff","#ffd6e9","#ff9dcc","#f7b6d7","#ffffff"];
+    heart.style.color=heartColors[Math.floor(Math.random()*heartColors.length)];
+    heart.style.textShadow="0 0 10px rgba(255,120,190,.45)";
+
+    document
+    .getElementById("hearts")
+    .appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },13000);
+
+}
+
+
+/* ============================================================
+   INICIAR
+============================================================ */
+
+loadSongs();
+
+renderLetters();
+
+setInterval(createHeart,170);
+
+
+/* ============================================================
+   CERRAR MODAL HACIENDO CLICK AFUERA
+============================================================ */
+
+document
+.getElementById("letterModal")
+.addEventListener("click",function(e){
+
+    if(e.target===this){
+        closeLetter();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
